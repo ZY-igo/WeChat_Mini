@@ -1,3 +1,19 @@
+.cart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx;
+  margin-bottom: 22rpx;
+}
+
+.cart-summary-chip {
+  padding: 14rpx 20rpx;
+  border-radius: 999rpx;
+  background: #eef4ff;
+  color: #45627f;
+  font-size: 22rpx;
+}
+
 .cart-item {
   display: flex;
   gap: 18rpx;
@@ -23,7 +39,7 @@
 .cart-subtitle {
   margin: 10rpx 0 14rpx;
   font-size: 22rpx;
-  color: #816b57;
+  color: #7d8998;
 }
 
 .cart-bottom {
@@ -49,12 +65,13 @@
 }
 
 .step-btn {
-  background: #f2e5d5;
+  background: #edf3fc;
   font-size: 32rpx;
+  color: #335273;
 }
 
 .step-value {
-  background: #fff8ef;
+  background: #f8fbff;
   font-size: 24rpx;
 }
 
@@ -74,7 +91,7 @@
 
 .empty-desc {
   font-size: 24rpx;
-  color: #8f7d68;
+  color: #8390a1;
 }
 
 .summary-card {
@@ -90,13 +107,13 @@
 }
 
 .saved-text {
-  color: #bf4c22;
+  color: #ff6b57;
 }
 
 .total-row {
   margin-top: 10rpx;
   padding-top: 20rpx;
-  border-top: 1px solid rgba(92, 63, 39, 0.08);
+  border-top: 1px solid rgba(102, 127, 163, 0.12);
   font-size: 34rpx;
   font-weight: 700;
 }

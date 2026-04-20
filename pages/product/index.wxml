@@ -9,7 +9,10 @@
 
   <view class="shell detail-shell">
     <view class="surface-card detail-summary">
-      <view class="pill">{{product.tag}}</view>
+      <view class="detail-top">
+        <view class="pill">{{product.tag}}</view>
+        <view class="detail-score">★ {{product.rating}}</view>
+      </view>
       <view class="detail-name">{{product.name}}</view>
       <view class="detail-subtitle">{{product.subtitle}}</view>
       <view class="price-row">
@@ -17,9 +20,9 @@
         <text class="price-old">¥{{product.originalPrice}}</text>
       </view>
       <view class="detail-meta">
-        <text>评分 {{product.rating}}</text>
         <text>销量 {{product.sales}}</text>
         <text>库存 {{product.stock}}</text>
+        <text>包邮</text>
       </view>
     </view>
 
@@ -30,7 +33,13 @@
           <view class="feature-pill">{{item}}</view>
         </block>
       </view>
-      <view class="detail-copy">围绕实用与氛围感做了平衡，适合做首页主推商品展示，也方便后续接入真实接口。</view>
+      <view class="detail-copy">当前为前端假数据详情页，结构已经按真实电商详情做了基础拆分，后面可以继续接图文详情、SKU 和评价接口。</view>
+    </view>
+
+    <view class="surface-card detail-section">
+      <view class="title-main small-title">配送与服务</view>
+      <view class="service-line">预计 48 小时内发货，支持售后与在线客服</view>
+      <view class="ghost-btn support-btn" bindtap="openService">联系客服</view>
     </view>
   </view>
 

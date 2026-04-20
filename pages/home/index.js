@@ -1,11 +1,12 @@
 const app = getApp();
-const { heroBanners, catalog, flashSale } = require("../../utils/data");
+const { heroBanners, catalog, flashSale, quickEntries } = require("../../utils/data");
 
 Page({
   data: {
     heroBanners,
     catalog,
     flashSale,
+    quickEntries,
     featured: []
   },
 
@@ -43,6 +44,21 @@ Page({
   goCategory() {
     wx.switchTab({
       url: "/pages/category/index"
+    });
+  },
+
+  openCategory(event) {
+    const { id } = event.currentTarget.dataset;
+    wx.setStorageSync("activeCategoryId", id);
+    wx.switchTab({
+      url: "/pages/category/index"
+    });
+  },
+
+  openService(event) {
+    const { value } = event.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/service/index?type=${value}`
     });
   }
 });

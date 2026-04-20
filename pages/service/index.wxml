@@ -1,0 +1,13 @@
+<view class="shell service-page">
+  <view class="surface-card service-head">
+    <view class="title-main">{{title}}</view>
+    <view class="service-desc">{{desc}}</view>
+  </view>
+
+  <block wx:for="{{records}}" wx:key="title">
+    <view class="surface-card service-card">
+      <view class="service-title">{{item.title}}</view>
+      <view class="service-text">{{item.text}}</view>
+    </view>
+  </block>
+</view>

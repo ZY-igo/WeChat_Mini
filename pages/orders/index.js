@@ -1,7 +1,8 @@
-const { orderList } = require("../../utils/data");
+const { orderList, orderTabs } = require("../../utils/data");
 
 Page({
   data: {
-    orderList
+    orderList,
+    orderTabs
   }
 });

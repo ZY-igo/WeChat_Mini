@@ -1,0 +1,18 @@
+.service-head,
+.service-card {
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.service-desc,
+.service-text {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  line-height: 1.7;
+  color: #7d8999;
+}
+
+.service-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}

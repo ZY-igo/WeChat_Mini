@@ -7,22 +7,22 @@ Component({
       {
         pagePath: "/pages/home/index",
         text: "商城",
-        key: "M"
+        key: "S"
       },
       {
         pagePath: "/pages/category/index",
         text: "分类",
-        key: "C"
+        key: "F"
       },
       {
         pagePath: "/pages/cart/index",
         text: "购物车",
-        key: "G"
+        key: "C"
       },
       {
         pagePath: "/pages/profile/index",
         text: "我的",
-        key: "P"
+        key: "M"
       }
     ],
     cartCount: 0

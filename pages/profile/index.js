@@ -23,10 +23,10 @@ Page({
     });
   },
 
-  showTip() {
-    wx.showToast({
-      title: "演示功能，可继续扩展",
-      icon: "none"
+  openService(event) {
+    const { key } = event.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/service/index?type=${key}`
     });
   }
 });

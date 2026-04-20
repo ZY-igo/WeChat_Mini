@@ -8,6 +8,12 @@ Page({
   },
 
   onShow() {
+    const activeCategoryId = wx.getStorageSync("activeCategoryId");
+    const activeIndex = catalog.findIndex((item) => item.id === activeCategoryId);
+
+    this.setData({
+      activeIndex: activeIndex >= 0 ? activeIndex : 0
+    });
     this.syncTabBar("/pages/category/index");
   },
 

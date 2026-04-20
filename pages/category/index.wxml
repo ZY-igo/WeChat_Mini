@@ -1,8 +1,8 @@
 <view class="shell category-page">
   <view class="section-title">
     <view>
-      <view class="title-main">多场景选品</view>
-      <view class="title-sub">按生活方式来逛，而不是只按品类</view>
+      <view class="title-main">分类选品</view>
+      <view class="title-sub">按生活场景浏览，信息更清晰</view>
     </view>
   </view>
 

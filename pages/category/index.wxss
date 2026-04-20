@@ -14,14 +14,14 @@
 .side-item {
   padding: 22rpx 18rpx;
   border-radius: 28rpx;
-  background: rgba(255, 250, 243, 0.72);
-  color: #806b58;
+  background: rgba(255, 255, 255, 0.82);
+  color: #718094;
 }
 
 .side-item.is-active {
-  background: linear-gradient(160deg, #23150a, #6f4128);
-  color: #fff6ee;
-  box-shadow: 0 18rpx 32rpx rgba(60, 35, 15, 0.18);
+  background: linear-gradient(180deg, #eff6ff, #dcecff);
+  color: #1d3f6f;
+  box-shadow: 0 14rpx 26rpx rgba(43, 92, 188, 0.12);
 }
 
 .side-item-title {
@@ -59,8 +59,8 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 24rpx;
-  background: linear-gradient(180deg, rgba(24, 12, 4, 0.1), rgba(24, 12, 4, 0.62));
-  color: #fff8ef;
+  background: linear-gradient(180deg, rgba(24, 41, 69, 0.12), rgba(24, 41, 69, 0.52));
+  color: #ffffff;
 }
 
 .category-cover-name {
@@ -101,7 +101,7 @@
   margin: 10rpx 0 12rpx;
   font-size: 22rpx;
   line-height: 1.5;
-  color: #806c59;
+  color: #7d8999;
 }
 
 .category-metrics {
@@ -109,7 +109,7 @@
   gap: 14rpx;
   margin-bottom: 16rpx;
   font-size: 20rpx;
-  color: #947f6c;
+  color: #909cad;
 }
 
 .small-btn {

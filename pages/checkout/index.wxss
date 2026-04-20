@@ -1,0 +1,39 @@
+.checkout-card {
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.checkout-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+
+.checkout-text {
+  font-size: 24rpx;
+  line-height: 1.7;
+  color: #7f8a9a;
+}
+
+.checkout-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14rpx 0;
+  font-size: 24rpx;
+  color: #5f6e82;
+}
+
+.total-line {
+  margin-top: 8rpx;
+  padding-top: 18rpx;
+  border-top: 1px solid rgba(92, 120, 163, 0.08);
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #18212f;
+}
+
+.checkout-submit {
+  width: 100%;
+  margin-top: 16rpx;
+}

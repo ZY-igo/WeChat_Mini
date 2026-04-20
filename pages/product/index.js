@@ -24,9 +24,19 @@ Page({
   },
 
   buyNow() {
-    wx.showToast({
-      title: "演示项目，暂不接支付",
-      icon: "none"
+    const { product } = this.data;
+    if (!product) {
+      return;
+    }
+
+    wx.navigateTo({
+      url: "/pages/checkout/index"
+    });
+  },
+
+  openService() {
+    wx.navigateTo({
+      url: "/pages/service/index?type=support"
     });
   }
 });

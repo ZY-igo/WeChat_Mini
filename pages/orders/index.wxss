@@ -1,3 +1,20 @@
+.order-tab-strip {
+  white-space: nowrap;
+  margin-bottom: 20rpx;
+}
+
+.order-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14rpx 22rpx;
+  margin-right: 14rpx;
+  border-radius: 999rpx;
+  background: #edf4ff;
+  color: #49617f;
+  font-size: 22rpx;
+}
+
 .order-item {
   padding: 26rpx;
   margin-bottom: 22rpx;
@@ -23,18 +40,18 @@
 .order-line {
   padding: 14rpx 0;
   font-size: 24rpx;
-  color: #765f4a;
-  border-bottom: 1px solid rgba(92, 63, 39, 0.08);
+  color: #718093;
+  border-bottom: 1px solid rgba(92, 120, 163, 0.08);
 }
 
 .order-foot {
   margin-top: 18rpx;
   font-size: 22rpx;
-  color: #8d7865;
+  color: #8d97a6;
 }
 
 .order-amount {
   font-size: 30rpx;
   font-weight: 700;
-  color: #23150a;
+  color: #18212f;
 }

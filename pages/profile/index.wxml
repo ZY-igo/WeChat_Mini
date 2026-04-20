@@ -28,7 +28,7 @@
     <view class="section-title">
       <view>
         <view class="title-main">我的订单</view>
-        <view class="title-sub">查看物流与售后进度</view>
+        <view class="title-sub">查看配送、签收和售后进度</view>
       </view>
       <view class="pill" bindtap="openOrders">全部订单</view>
     </view>
@@ -46,11 +46,11 @@
     <view class="section-title">
       <view>
         <view class="title-main">常用服务</view>
-        <view class="title-sub">账户、权益与帮助中心</view>
+        <view class="title-sub">所有入口都可进入演示页面</view>
       </view>
     </view>
-    <block wx:for="{{profileTools}}" wx:key="title">
-      <view class="tool-row" bindtap="showTip">
+    <block wx:for="{{profileTools}}" wx:key="key">
+      <view class="tool-row" data-key="{{item.key}}" bindtap="openService">
         <view>
           <view class="tool-title">{{item.title}}</view>
           <view class="tool-subtitle">{{item.subtitle}}</view>
@@ -62,7 +62,7 @@
 
   <view class="surface-card member-card">
     <view class="member-title">会员权益</view>
-    <view class="member-copy">每月免邮券、专属折扣、新品优先购和生日礼遇都已经在路上。</view>
-    <view class="action-btn" bindtap="showTip">查看权益详情</view>
+    <view class="member-copy">免邮券、专属折扣、新品优先购和生日礼遇都可以在演示页继续查看。</view>
+    <view class="action-btn" data-key="member" bindtap="openService">查看权益详情</view>
   </view>
 </view>

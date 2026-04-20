@@ -1,11 +1,11 @@
 page {
-  background: #efe6d8;
-  color: #23150a;
+  background: #f5f7fb;
+  color: #18212f;
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 .shell {
-  padding: 24rpx 24rpx 180rpx;
+  padding: 24rpx 24rpx 192rpx;
 }
 
 .hero-card,
@@ -23,8 +23,8 @@ page {
 .section-card,
 .order-card,
 .cart-card {
-  background: rgba(255, 250, 243, 0.92);
-  box-shadow: 0 20rpx 40rpx rgba(60, 35, 15, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18rpx 44rpx rgba(34, 57, 93, 0.08);
 }
 
 .section-title {
@@ -37,22 +37,23 @@ page {
 .title-main {
   font-size: 38rpx;
   font-weight: 700;
+  letter-spacing: 0.4rpx;
 }
 
 .title-sub {
   font-size: 22rpx;
-  color: #8a735e;
+  color: #7e8898;
 }
 
 .pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10rpx 20rpx;
+  padding: 10rpx 22rpx;
   border-radius: 999rpx;
-  background: rgba(35, 21, 10, 0.08);
+  background: #eef3ff;
   font-size: 22rpx;
-  color: #6e5a47;
+  color: #4f6481;
 }
 
 .price-row {
@@ -64,12 +65,12 @@ page {
 .price-now {
   font-size: 34rpx;
   font-weight: 700;
-  color: #bf4c22;
+  color: #1957d2;
 }
 
 .price-old {
   font-size: 22rpx;
-  color: #a89a88;
+  color: #aab4c3;
   text-decoration: line-through;
 }
 
@@ -80,10 +81,11 @@ page {
   height: 76rpx;
   padding: 0 28rpx;
   border-radius: 999rpx;
-  background: linear-gradient(135deg, #23150a, #6f4128);
-  color: #fff8ef;
+  background: linear-gradient(135deg, #1957d2, #46a4ff);
+  color: #ffffff;
   font-size: 26rpx;
   font-weight: 600;
+  box-shadow: 0 14rpx 28rpx rgba(25, 87, 210, 0.22);
 }
 
 .ghost-btn {
@@ -93,7 +95,7 @@ page {
   height: 72rpx;
   padding: 0 28rpx;
   border-radius: 999rpx;
-  background: #f2e7d7;
-  color: #533a28;
+  background: #eef3fb;
+  color: #36506f;
   font-size: 24rpx;
 }

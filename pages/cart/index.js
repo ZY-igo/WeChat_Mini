@@ -62,10 +62,9 @@ Page({
     });
   },
 
-  checkout() {
-    wx.showToast({
-      title: "演示项目，暂不接支付",
-      icon: "none"
+  goCheckout() {
+    wx.navigateTo({
+      url: "/pages/checkout/index"
     });
   }
 });

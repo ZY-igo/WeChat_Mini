@@ -1,5 +1,5 @@
 {
-  "appid": "touristappid",
+  "appid": "wx3634cf0a31e68d79",
   "projectname": "wechat-mini-commerce",
   "description": "MORI SHOP mini program demo",
   "compileType": "miniprogram",
@@ -10,6 +10,30 @@
     "es6": true,
     "enhance": true,
     "postcss": true,
-    "minified": false
-  }
+    "minified": false,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {}
 }

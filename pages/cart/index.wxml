@@ -1,10 +1,10 @@
 <view class="shell cart-page">
-  <view class="section-title">
+  <view class="surface-card cart-head">
     <view>
       <view class="title-main">购物车</view>
-      <view class="title-sub">把要买的先放进来，统一结算</view>
+      <view class="title-sub">把想买的集中管理，统一结算</view>
     </view>
-    <view class="pill">{{totalCount}} 件商品</view>
+    <view class="cart-summary-chip">{{totalCount}} 件商品</view>
   </view>
 
   <block wx:if="{{cartItems.length}}">
@@ -33,7 +33,7 @@
 
   <view wx:else class="surface-card empty-card">
     <view class="empty-title">购物车还是空的</view>
-    <view class="empty-desc">先去逛逛，把喜欢的商品加进来。</view>
+    <view class="empty-desc">先去商城挑几件喜欢的商品，再回来统一结算。</view>
     <navigator class="action-btn" open-type="switchTab" url="/pages/home/index">去逛商城</navigator>
   </view>
 
@@ -50,13 +50,13 @@
       <text>合计</text>
       <text>¥{{totalAmount}}</text>
     </view>
-    <view class="action-btn checkout-btn" bindtap="checkout">去结算</view>
+    <view class="action-btn checkout-btn" bindtap="goCheckout">去结算</view>
   </view>
 
   <view class="section-title">
     <view>
-      <view class="title-main">你可能还想买</view>
-      <view class="title-sub">顺手一起带走</view>
+      <view class="title-main">可能还想买</view>
+      <view class="title-sub">顺手搭配一起带走</view>
     </view>
   </view>
   <scroll-view class="recommend-strip" scroll-x enable-flex>
