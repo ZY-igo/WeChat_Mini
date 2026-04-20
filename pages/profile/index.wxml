@@ -43,21 +43,24 @@
   </view>
 
   <view class="surface-card tools-card">
-    <view class="section-title">
-      <view>
-        <view class="title-main">常用服务</view>
-        <view class="title-sub">所有入口都可进入演示页面</view>
-      </view>
+    <view class="settings-head">
+      <view class="title-main">账户与设置</view>
+      <view class="title-sub">主流 App 常见设置页结构</view>
     </view>
-    <block wx:for="{{profileTools}}" wx:key="key">
-      <view class="tool-row" data-key="{{item.key}}" bindtap="openService">
-        <view>
-          <view class="tool-title">{{item.title}}</view>
-          <view class="tool-subtitle">{{item.subtitle}}</view>
+    <view class="settings-group">
+      <block wx:for="{{profileTools}}" wx:key="key">
+        <view class="tool-row" data-key="{{item.key}}" bindtap="openService">
+          <view class="tool-main">
+            <view class="tool-badge">{{index + 1}}</view>
+            <view>
+              <view class="tool-title">{{item.title}}</view>
+              <view class="tool-subtitle">{{item.subtitle}}</view>
+            </view>
+          </view>
+          <view class="tool-arrow">></view>
         </view>
-        <view class="tool-arrow">></view>
-      </view>
-    </block>
+      </block>
+    </view>
   </view>
 
   <view class="surface-card member-card">

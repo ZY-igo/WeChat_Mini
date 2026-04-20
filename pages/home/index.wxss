@@ -1,7 +1,7 @@
 .hero {
-  padding: 28rpx;
-  margin-bottom: 28rpx;
-  background: linear-gradient(180deg, #ffffff, #eef6ff);
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  background: linear-gradient(180deg, #ffffff, #f2f7ff);
 }
 
 .hero-top {
@@ -12,16 +12,16 @@
 }
 
 .hero-brand {
-  font-size: 22rpx;
-  letter-spacing: 8rpx;
-  color: #7e8ea3;
+  font-size: 20rpx;
+  letter-spacing: 7rpx;
+  color: #90a0b3;
 }
 
 .hero-title {
   width: 460rpx;
-  margin-top: 14rpx;
-  font-size: 54rpx;
-  line-height: 1.14;
+  margin-top: 12rpx;
+  font-size: 50rpx;
+  line-height: 1.18;
   font-weight: 700;
 }
 
@@ -31,7 +31,7 @@
 
 .banner {
   height: 100%;
-  border-radius: 28rpx;
+  border-radius: 30rpx;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -42,8 +42,8 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  padding: 26rpx;
-  background: linear-gradient(180deg, rgba(19, 34, 56, 0.08), rgba(19, 34, 56, 0.5));
+  padding: 28rpx;
+  background: linear-gradient(180deg, rgba(19, 34, 56, 0.06), rgba(19, 34, 56, 0.48));
   color: #ffffff;
 }
 
@@ -55,31 +55,33 @@
 }
 
 .banner-title {
-  font-size: 40rpx;
+  font-size: 38rpx;
   font-weight: 700;
 }
 
 .banner-caption {
   margin-top: 10rpx;
   font-size: 24rpx;
-  line-height: 1.5;
+  line-height: 1.55;
+  opacity: 0.94;
 }
 
 .quick-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16rpx;
-  margin-top: 20rpx;
+  gap: 14rpx;
+  margin-top: 22rpx;
 }
 
 .quick-entry {
-  padding: 22rpx 16rpx;
-  border-radius: 24rpx;
-  background: rgba(255, 255, 255, 0.88);
+  padding: 22rpx 18rpx;
+  border-radius: 26rpx;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(227, 234, 244, 0.92);
 }
 
 .quick-title {
-  font-size: 26rpx;
+  font-size: 25rpx;
   font-weight: 700;
 }
 
@@ -87,7 +89,7 @@
   margin-top: 8rpx;
   font-size: 20rpx;
   line-height: 1.4;
-  color: #8190a2;
+  color: #91a0b3;
 }
 
 .category-strip {
@@ -106,7 +108,7 @@
 .category-image {
   width: 228rpx;
   height: 208rpx;
-  border-radius: 24rpx;
+  border-radius: 26rpx;
 }
 
 .category-name {
@@ -119,12 +121,12 @@
   margin-top: 8rpx;
   font-size: 22rpx;
   line-height: 1.5;
-  color: #7f8c9c;
+  color: #8d99aa;
 }
 
 .flash-card {
-  padding: 28rpx;
-  margin-bottom: 28rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
 }
 
 .flash-list {
@@ -136,13 +138,13 @@
 .flash-item {
   display: flex;
   gap: 18rpx;
-  padding: 8rpx 0;
+  padding: 10rpx 0;
 }
 
 .flash-image {
   width: 200rpx;
   height: 180rpx;
-  border-radius: 24rpx;
+  border-radius: 26rpx;
 }
 
 .flash-info {
@@ -153,7 +155,7 @@
 }
 
 .flash-name {
-  font-size: 30rpx;
+  font-size: 29rpx;
   font-weight: 700;
 }
 
@@ -173,7 +175,7 @@
 
 .flash-foot {
   font-size: 22rpx;
-  color: #7e8a9b;
+  color: #8f99a8;
 }
 
 .product-grid {
@@ -193,7 +195,7 @@
 }
 
 .product-body {
-  padding: 24rpx 24rpx 12rpx;
+  padding: 26rpx 24rpx 14rpx;
 }
 
 .product-topline {
@@ -206,14 +208,14 @@
   display: inline-flex;
   padding: 6rpx 16rpx;
   border-radius: 999rpx;
-  background: #edf4ff;
-  color: #3162bd;
+  background: #f1f5fb;
+  color: #4f6480;
   font-size: 20rpx;
 }
 
 .product-score {
   font-size: 22rpx;
-  color: #8491a2;
+  color: #98a4b3;
 }
 
 .product-name {
@@ -226,12 +228,12 @@
   margin: 10rpx 0 18rpx;
   font-size: 22rpx;
   line-height: 1.5;
-  color: #7f8b9b;
+  color: #8996a7;
 }
 
 .product-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24rpx 24rpx;
+  padding: 0 24rpx 26rpx;
 }

@@ -1,3 +1,9 @@
 {
-  "rules": []
+  "desc": "MORI SHOP sitemap",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
 }
