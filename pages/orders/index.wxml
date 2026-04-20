@@ -1,0 +1,28 @@
+<view class="shell orders-page">
+  <view class="section-title">
+    <view>
+      <view class="title-main">订单列表</view>
+      <view class="title-sub">前端假数据演示，可直接接后端接口</view>
+    </view>
+  </view>
+
+  <block wx:for="{{orderList}}" wx:key="id">
+    <view class="order-card order-item">
+      <view class="order-head">
+        <view class="order-id">{{item.id}}</view>
+        <view class="pill">{{item.status}}</view>
+      </view>
+      <block wx:for="{{item.items}}" wx:key="name" wx:for-item="goods">
+        <view class="order-line">
+          <text>{{goods.name}}</text>
+          <text>x{{goods.quantity}}</text>
+          <text>¥{{goods.price}}</text>
+        </view>
+      </block>
+      <view class="order-foot">
+        <text>{{item.time}}</text>
+        <text class="order-amount">合计 ¥{{item.amount}}</text>
+      </view>
+    </view>
+  </block>
+</view>

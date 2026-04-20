@@ -1,0 +1,41 @@
+<view wx:if="{{product}}" class="product-page">
+  <swiper class="detail-swiper" autoplay circular>
+    <block wx:for="{{product.detailImages}}" wx:key="*this">
+      <swiper-item>
+        <image class="detail-image" mode="aspectFill" src="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="shell detail-shell">
+    <view class="surface-card detail-summary">
+      <view class="pill">{{product.tag}}</view>
+      <view class="detail-name">{{product.name}}</view>
+      <view class="detail-subtitle">{{product.subtitle}}</view>
+      <view class="price-row">
+        <text class="price-now">¥{{product.price}}</text>
+        <text class="price-old">¥{{product.originalPrice}}</text>
+      </view>
+      <view class="detail-meta">
+        <text>评分 {{product.rating}}</text>
+        <text>销量 {{product.sales}}</text>
+        <text>库存 {{product.stock}}</text>
+      </view>
+    </view>
+
+    <view class="surface-card detail-section">
+      <view class="title-main small-title">商品亮点</view>
+      <view class="feature-list">
+        <block wx:for="{{product.features}}" wx:key="*this">
+          <view class="feature-pill">{{item}}</view>
+        </block>
+      </view>
+      <view class="detail-copy">围绕实用与氛围感做了平衡，适合做首页主推商品展示，也方便后续接入真实接口。</view>
+    </view>
+  </view>
+
+  <view class="detail-actions">
+    <view class="ghost-btn detail-btn" bindtap="addToCart">加入购物车</view>
+    <view class="action-btn detail-btn" bindtap="buyNow">立即购买</view>
+  </view>
+</view>

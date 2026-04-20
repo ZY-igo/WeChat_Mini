@@ -1,0 +1,15 @@
+{
+  "appid": "touristappid",
+  "projectname": "wechat-mini-commerce",
+  "description": "MORI SHOP mini program demo",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "./",
+  "libVersion": "3.6.3",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": false
+  }
+}

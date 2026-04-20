@@ -1,0 +1,50 @@
+<view class="shell category-page">
+  <view class="section-title">
+    <view>
+      <view class="title-main">多场景选品</view>
+      <view class="title-sub">按生活方式来逛，而不是只按品类</view>
+    </view>
+  </view>
+
+  <view class="catalog-shell">
+    <view class="catalog-sidebar">
+      <block wx:for="{{categories}}" wx:key="id">
+        <view class="side-item {{activeIndex === index ? 'is-active' : ''}}" data-index="{{index}}" bindtap="selectCategory">
+          <view class="side-item-title">{{item.name}}</view>
+          <view class="side-item-sub">{{item.description}}</view>
+        </view>
+      </block>
+    </view>
+
+    <scroll-view class="catalog-main" scroll-y>
+      <view class="surface-card category-header">
+        <image class="category-cover" mode="aspectFill" src="{{categories[activeIndex].cover}}" />
+        <view class="category-cover-mask">
+          <view class="category-cover-name">{{categories[activeIndex].name}}</view>
+          <view class="category-cover-desc">{{categories[activeIndex].description}}</view>
+        </view>
+      </view>
+
+      <block wx:for="{{categories[activeIndex].products}}" wx:key="id">
+        <view class="surface-card category-product">
+          <image class="category-product-image" mode="aspectFill" src="{{item.image}}" data-id="{{item.id}}" bindtap="openProduct" />
+          <view class="category-product-body" data-id="{{item.id}}" bindtap="openProduct">
+            <view class="pill">{{item.tag}}</view>
+            <view class="category-product-name">{{item.name}}</view>
+            <view class="category-product-subtitle">{{item.subtitle}}</view>
+            <view class="category-metrics">
+              <text>评分 {{item.rating}}</text>
+              <text>库存 {{item.stock}}</text>
+              <text>销量 {{item.sales}}</text>
+            </view>
+            <view class="price-row">
+              <text class="price-now">¥{{item.price}}</text>
+              <text class="price-old">¥{{item.originalPrice}}</text>
+            </view>
+          </view>
+          <view class="action-btn small-btn" data-id="{{item.id}}" bindtap="addToCart">加入</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

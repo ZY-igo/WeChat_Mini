@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/category/index",
+    "pages/cart/index",
+    "pages/profile/index",
+    "pages/product/index",
+    "pages/orders/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "MORI SHOP",
+    "navigationBarBackgroundColor": "#f7f1e8",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#efe6d8",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "custom": true,
+    "color": "#8d7d68",
+    "selectedColor": "#23150a",
+    "backgroundColor": "#f7f1e8",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "商城"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的"
+      }
+    ]
+  }
+}

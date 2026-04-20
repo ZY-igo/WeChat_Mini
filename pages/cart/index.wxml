@@ -1,0 +1,72 @@
+<view class="shell cart-page">
+  <view class="section-title">
+    <view>
+      <view class="title-main">购物车</view>
+      <view class="title-sub">把要买的先放进来，统一结算</view>
+    </view>
+    <view class="pill">{{totalCount}} 件商品</view>
+  </view>
+
+  <block wx:if="{{cartItems.length}}">
+    <block wx:for="{{cartItems}}" wx:key="id">
+      <view class="cart-card cart-item">
+        <image class="cart-image" mode="aspectFill" src="{{item.image}}" data-id="{{item.id}}" bindtap="openProduct" />
+        <view class="cart-body">
+          <view class="cart-name" data-id="{{item.id}}" bindtap="openProduct">{{item.name}}</view>
+          <view class="cart-subtitle">{{item.subtitle}}</view>
+          <view class="price-row">
+            <text class="price-now">¥{{item.price}}</text>
+            <text class="price-old">¥{{item.originalPrice}}</text>
+          </view>
+          <view class="cart-bottom">
+            <view class="cart-stepper">
+              <view class="step-btn" data-id="{{item.id}}" data-delta="-1" bindtap="changeQuantity">-</view>
+              <text class="step-value">{{item.quantity}}</text>
+              <view class="step-btn" data-id="{{item.id}}" data-delta="1" bindtap="changeQuantity">+</view>
+            </view>
+            <view class="pill">小计 ¥{{item.price * item.quantity}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <view wx:else class="surface-card empty-card">
+    <view class="empty-title">购物车还是空的</view>
+    <view class="empty-desc">先去逛逛，把喜欢的商品加进来。</view>
+    <navigator class="action-btn" open-type="switchTab" url="/pages/home/index">去逛商城</navigator>
+  </view>
+
+  <view class="surface-card summary-card">
+    <view class="summary-row">
+      <text>商品金额</text>
+      <text>¥{{totalAmount}}</text>
+    </view>
+    <view class="summary-row">
+      <text>已节省</text>
+      <text class="saved-text">-¥{{savedAmount}}</text>
+    </view>
+    <view class="summary-row total-row">
+      <text>合计</text>
+      <text>¥{{totalAmount}}</text>
+    </view>
+    <view class="action-btn checkout-btn" bindtap="checkout">去结算</view>
+  </view>
+
+  <view class="section-title">
+    <view>
+      <view class="title-main">你可能还想买</view>
+      <view class="title-sub">顺手一起带走</view>
+    </view>
+  </view>
+  <scroll-view class="recommend-strip" scroll-x enable-flex>
+    <block wx:for="{{recommendList}}" wx:key="id">
+      <view class="surface-card recommend-card">
+        <image class="recommend-image" mode="aspectFill" src="{{item.image}}" data-id="{{item.id}}" bindtap="openProduct" />
+        <view class="recommend-name">{{item.name}}</view>
+        <view class="price-now">¥{{item.price}}</view>
+        <view class="ghost-btn" data-id="{{item.id}}" bindtap="addRecommend">加入</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

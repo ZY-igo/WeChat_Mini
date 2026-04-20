@@ -1,0 +1,99 @@
+page {
+  background: #efe6d8;
+  color: #23150a;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.shell {
+  padding: 24rpx 24rpx 180rpx;
+}
+
+.hero-card,
+.surface-card,
+.product-card,
+.section-card,
+.order-card,
+.cart-card {
+  box-sizing: border-box;
+  border-radius: 32rpx;
+}
+
+.hero-card,
+.surface-card,
+.section-card,
+.order-card,
+.cart-card {
+  background: rgba(255, 250, 243, 0.92);
+  box-shadow: 0 20rpx 40rpx rgba(60, 35, 15, 0.08);
+}
+
+.section-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.title-main {
+  font-size: 38rpx;
+  font-weight: 700;
+}
+
+.title-sub {
+  font-size: 22rpx;
+  color: #8a735e;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 20rpx;
+  border-radius: 999rpx;
+  background: rgba(35, 21, 10, 0.08);
+  font-size: 22rpx;
+  color: #6e5a47;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12rpx;
+}
+
+.price-now {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #bf4c22;
+}
+
+.price-old {
+  font-size: 22rpx;
+  color: #a89a88;
+  text-decoration: line-through;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 76rpx;
+  padding: 0 28rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #23150a, #6f4128);
+  color: #fff8ef;
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+.ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 72rpx;
+  padding: 0 28rpx;
+  border-radius: 999rpx;
+  background: #f2e7d7;
+  color: #533a28;
+  font-size: 24rpx;
+}

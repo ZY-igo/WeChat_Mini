@@ -1,0 +1,92 @@
+<view class="shell home-page">
+  <view class="hero-card hero">
+    <view class="hero-top">
+      <view>
+        <view class="hero-brand">MORI SHOP</view>
+        <view class="hero-title">把日常，重新摆放得更好看一点</view>
+      </view>
+      <view class="pill">春日企划</view>
+    </view>
+    <swiper class="hero-swiper" autoplay circular interval="3200">
+      <block wx:for="{{heroBanners}}" wx:key="id">
+        <swiper-item>
+          <view class="banner" style="background-image:url({{item.image}})">
+            <view class="banner-mask">
+              <view class="banner-title">{{item.title}}</view>
+              <view class="banner-caption">{{item.caption}}</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="section-title">
+    <view>
+      <view class="title-main">精选分类</view>
+      <view class="title-sub">从风格、居家、饮食到护理</view>
+    </view>
+    <view class="pill" bindtap="goCategory">查看全部</view>
+  </view>
+  <scroll-view class="category-strip" scroll-x enable-flex>
+    <block wx:for="{{catalog}}" wx:key="id">
+      <view class="surface-card category-tile">
+        <image class="category-image" mode="aspectFill" src="{{item.cover}}" />
+        <view class="category-name">{{item.name}}</view>
+        <view class="category-desc">{{item.description}}</view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <view class="surface-card flash-card">
+    <view class="section-title">
+      <view>
+        <view class="title-main">限时精选</view>
+        <view class="title-sub">今天下单更划算</view>
+      </view>
+      <view class="pill">20:00 截止</view>
+    </view>
+    <view class="flash-list">
+      <block wx:for="{{flashSale}}" wx:key="id">
+        <view class="flash-item" data-id="{{item.id}}" bindtap="openProduct">
+          <image class="flash-image" mode="aspectFill" src="{{item.image}}" />
+          <view class="flash-info">
+            <view class="flash-name">{{item.name}}</view>
+            <view class="price-now">¥{{item.price}}</view>
+            <view class="progress-track">
+              <view class="progress-fill" style="width: {{item.progress}}%"></view>
+            </view>
+            <view class="flash-foot">已抢 {{item.progress}}%</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="section-title">
+    <view>
+      <view class="title-main">为你推荐</view>
+      <view class="title-sub">兼顾颜值与实用</view>
+    </view>
+  </view>
+  <view class="product-grid">
+    <block wx:for="{{featured}}" wx:key="id">
+      <view class="product-card product-item">
+        <image class="product-image" mode="aspectFill" src="{{item.image}}" data-id="{{item.id}}" bindtap="openProduct" />
+        <view class="product-body" data-id="{{item.id}}" bindtap="openProduct">
+          <view class="product-tag">{{item.tag}}</view>
+          <view class="product-name">{{item.name}}</view>
+          <view class="product-subtitle">{{item.subtitle}}</view>
+          <view class="price-row">
+            <text class="price-now">¥{{item.price}}</text>
+            <text class="price-old">¥{{item.originalPrice}}</text>
+          </view>
+        </view>
+        <view class="product-actions">
+          <view class="pill">销量 {{item.sales}}</view>
+          <view class="action-btn" data-id="{{item.id}}" bindtap="addToCart">加入购物车</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
