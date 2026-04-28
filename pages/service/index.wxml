@@ -5,7 +5,7 @@
   </view>
 
   <block wx:for="{{records}}" wx:key="title">
-    <view class="surface-card service-card">
+    <view class="surface-card service-card pressable" hover-class="card-press-hover">
       <view class="service-title">{{item.title}}</view>
       <view class="service-text">{{item.text}}</view>
     </view>

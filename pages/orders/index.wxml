@@ -2,18 +2,18 @@
   <view class="section-title">
     <view>
       <view class="title-main">订单列表</view>
-      <view class="title-sub">前端假数据演示，可直接替换成接口数据</view>
+      <view class="title-sub">当前为前端 Mock 数据，结构可直接替换为真实接口返回。</view>
     </view>
   </view>
 
   <scroll-view class="order-tab-strip" scroll-x enable-flex>
     <block wx:for="{{orderTabs}}" wx:key="label">
-      <view class="order-filter">{{item.label}} {{item.count}}</view>
+      <view class="order-filter pressable" hover-class="pressable-hover">{{item.label}} {{item.count}}</view>
     </block>
   </scroll-view>
 
   <block wx:for="{{orderList}}" wx:key="id">
-    <view class="order-card order-item">
+    <view class="order-card order-item pressable" hover-class="card-press-hover">
       <view class="order-head">
         <view class="order-id">{{item.id}}</view>
         <view class="pill">{{item.status}}</view>

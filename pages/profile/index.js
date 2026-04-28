@@ -1,12 +1,17 @@
-const { orderTabs, profileTools } = require("../../utils/data");
+const { getProfilePage } = require("../../services/api/profile");
 
 Page({
   data: {
-    orderTabs,
-    profileTools
+    orderTabs: [],
+    profileTools: [],
+    profile: {
+      stats: []
+    }
   },
 
-  onShow() {
+  async onShow() {
+    const response = await getProfilePage();
+    this.setData(response.data);
     this.syncTabBar("/pages/profile/index");
   },
 

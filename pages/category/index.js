@@ -1,19 +1,16 @@
-const app = getApp();
-const { catalog } = require("../../utils/data");
+const { getCategoryPage } = require("../../services/api/catalog");
+const cartApi = require("../../services/api/cart");
 
 Page({
   data: {
-    categories: catalog,
+    categories: [],
     activeIndex: 0
   },
 
-  onShow() {
+  async onShow() {
     const activeCategoryId = wx.getStorageSync("activeCategoryId");
-    const activeIndex = catalog.findIndex((item) => item.id === activeCategoryId);
-
-    this.setData({
-      activeIndex: activeIndex >= 0 ? activeIndex : 0
-    });
+    const response = await getCategoryPage(activeCategoryId);
+    this.setData(response.data);
     this.syncTabBar("/pages/category/index");
   },
 
@@ -36,9 +33,9 @@ Page({
     });
   },
 
-  addToCart(event) {
+  async addToCart(event) {
     const { id } = event.currentTarget.dataset;
-    app.addToCart(id, 1);
+    await cartApi.addToCart(id, 1);
     this.syncTabBar("/pages/category/index");
     wx.showToast({
       title: "已加入购物车",

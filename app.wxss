@@ -1,11 +1,64 @@
 page {
-  background: #f3f6fb;
-  color: #18212f;
+  background: linear-gradient(180deg, #fff3e8 0%, #fff8f3 220rpx, #f8f3ee 221rpx, #f8f3ee 100%);
+  color: #2c221c;
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 .shell {
   padding: 28rpx 24rpx 196rpx;
+}
+
+.home-page,
+.category-page,
+.cart-page,
+.profile-page,
+.orders-page,
+.service-page,
+.checkout-page {
+  position: relative;
+}
+
+.category-page::before,
+.cart-page::before,
+.profile-page::before,
+.orders-page::before,
+.service-page::before,
+.checkout-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 280rpx;
+  background: linear-gradient(180deg, #ff6a00 0%, #ff922d 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.category-page::after,
+.cart-page::after,
+.profile-page::after,
+.orders-page::after,
+.service-page::after,
+.checkout-page::after {
+  content: "";
+  position: fixed;
+  top: -120rpx;
+  right: -80rpx;
+  width: 320rpx;
+  height: 320rpx;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shell > view,
+.shell > scroll-view,
+.shell > swiper,
+.shell > block {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-card,
@@ -24,8 +77,9 @@ page {
 .order-card,
 .cart-card {
   background: rgba(255, 255, 255, 0.98);
-  border: 1px solid rgba(226, 233, 244, 0.9);
-  box-shadow: 0 12rpx 36rpx rgba(31, 54, 88, 0.06);
+  border: 1px solid rgba(255, 209, 173, 0.9);
+  box-shadow: 0 18rpx 44rpx rgba(181, 87, 15, 0.1);
+  backdrop-filter: blur(20rpx);
 }
 
 .section-title {
@@ -37,13 +91,14 @@ page {
 
 .title-main {
   font-size: 36rpx;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.2rpx;
+  color: #2c221c;
 }
 
 .title-sub {
   font-size: 22rpx;
-  color: #8a95a6;
+  color: #9e8a7d;
 }
 
 .pill {
@@ -52,10 +107,10 @@ page {
   justify-content: center;
   padding: 10rpx 20rpx;
   border-radius: 999rpx;
-  background: #f1f5fb;
-  border: 1px solid rgba(223, 231, 242, 0.95);
+  background: linear-gradient(180deg, #fff3e4, #ffe2c5);
+  border: 1px solid rgba(255, 196, 138, 0.95);
   font-size: 22rpx;
-  color: #5f7087;
+  color: #c55d12;
 }
 
 .price-row {
@@ -66,13 +121,13 @@ page {
 
 .price-now {
   font-size: 32rpx;
-  font-weight: 700;
-  color: #1957d2;
+  font-weight: 800;
+  color: #ff5a1f;
 }
 
 .price-old {
   font-size: 22rpx;
-  color: #aab4c3;
+  color: #c2aa9b;
   text-decoration: line-through;
 }
 
@@ -83,11 +138,12 @@ page {
   height: 76rpx;
   padding: 0 30rpx;
   border-radius: 999rpx;
-  background: linear-gradient(135deg, #1d5fe4, #3f8cff);
+  background: linear-gradient(135deg, #ff6a00, #ff9b2f);
   color: #ffffff;
   font-size: 25rpx;
-  font-weight: 600;
-  box-shadow: 0 10rpx 24rpx rgba(29, 95, 228, 0.2);
+  font-weight: 700;
+  box-shadow: 0 12rpx 28rpx rgba(255, 106, 0, 0.24);
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, opacity 0.1s ease-out;
 }
 
 .ghost-btn {
@@ -97,8 +153,37 @@ page {
   height: 72rpx;
   padding: 0 28rpx;
   border-radius: 999rpx;
-  background: #f3f6fb;
-  border: 1px solid rgba(223, 231, 242, 0.95);
-  color: #4f6581;
+  background: #fff4e8;
+  border: 1px solid rgba(255, 206, 162, 0.95);
+  color: #d16515;
   font-size: 24rpx;
+  font-weight: 600;
+  transition: transform 0.1s ease-out, background 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+.pressable {
+  transform: scale(1);
+  transition: transform 0.08s ease-out, opacity 0.08s ease-out, box-shadow 0.08s ease-out, background 0.08s ease-out;
+}
+
+.pressable-hover {
+  transform: scale(0.97);
+  opacity: 0.92;
+}
+
+.card-press-hover {
+  transform: scale(0.985) translateY(2rpx);
+  opacity: 0.98;
+}
+
+.action-btn-hover {
+  transform: scale(0.96);
+  opacity: 0.94;
+  box-shadow: 0 6rpx 16rpx rgba(255, 106, 0, 0.18);
+}
+
+.ghost-btn-hover {
+  transform: scale(0.97);
+  opacity: 0.94;
+  background: #ffe8d2;
 }

@@ -1,106 +1,136 @@
-<view class="shell home-page">
-  <view class="hero-card hero">
-    <view class="hero-top">
-      <view>
-        <view class="hero-brand">MORI SHOP</view>
-        <view class="hero-title">让日常购物更简单，也更好看。</view>
+<view class="home-page">
+  <view class="home-header">
+    <view class="header-top">
+      <view class="brand-block">
+        <view class="brand-name">MORI</view>
+        <view class="brand-copy">精选生活百货</view>
       </view>
-      <view class="pill" data-value="new" bindtap="openService">春季企划</view>
+      <view class="header-action">上海</view>
     </view>
 
+    <view class="search-bar pressable" bindtap="openSearch" hover-class="pressable-hover">
+      <view class="search-icon">搜</view>
+      <view class="search-placeholder">搜索商品 / 品牌 / 优惠活动</view>
+    </view>
+
+    <scroll-view class="keyword-strip" scroll-x enable-flex>
+      <block wx:for="{{topKeywords}}" wx:key="*this">
+        <view class="keyword-pill">{{item}}</view>
+      </block>
+    </scroll-view>
+
+    <view class="notice-bar">{{notice}}</view>
+  </view>
+
+  <view class="shell home-shell">
     <swiper class="hero-swiper" autoplay circular interval="3200">
       <block wx:for="{{heroBanners}}" wx:key="id">
         <swiper-item>
-          <view class="banner" style="background-image:url({{item.image}})">
-            <view class="banner-mask">
-              <view class="pill hero-badge">{{item.badge}}</view>
-              <view class="banner-title">{{item.title}}</view>
-              <view class="banner-caption">{{item.caption}}</view>
+          <view class="hero-banner" style="background-image:url({{item.image}})">
+            <view class="hero-mask">
+              <view class="hero-badge">{{item.badge}}</view>
+              <view class="hero-title">{{item.title}}</view>
+              <view class="hero-caption">{{item.caption}}</view>
             </view>
           </view>
         </swiper-item>
       </block>
     </swiper>
 
-    <view class="quick-grid">
+    <view class="quick-panel">
       <block wx:for="{{quickEntries}}" wx:key="id">
-        <view class="quick-entry" data-value="{{item.value}}" bindtap="openService">
+        <view class="quick-item pressable" data-value="{{item.value}}" bindtap="openService" hover-class="pressable-hover">
+          <view class="quick-icon">{{item.icon}}</view>
           <view class="quick-title">{{item.title}}</view>
           <view class="quick-subtitle">{{item.subtitle}}</view>
         </view>
       </block>
     </view>
-  </view>
 
-  <view class="section-title">
-    <view>
-      <view class="title-main">分类精选</view>
-      <view class="title-sub">从穿搭、家居到食品，一次逛全</view>
-    </view>
-    <view class="pill" bindtap="goCategory">查看全部</view>
-  </view>
-  <scroll-view class="category-strip" scroll-x enable-flex>
-    <block wx:for="{{catalog}}" wx:key="id">
-      <view class="surface-card category-tile" data-id="{{item.id}}" bindtap="openCategory">
-        <image class="category-image" mode="aspectFill" src="{{item.cover}}" />
-        <view class="category-name">{{item.name}}</view>
-        <view class="category-desc">{{item.description}}</view>
-      </view>
-    </block>
-  </scroll-view>
-
-  <view class="surface-card flash-card">
-    <view class="section-title">
-      <view>
-        <view class="title-main">限时精选</view>
-        <view class="title-sub">精选单品今日价更低</view>
-      </view>
-      <view class="pill">20:00 截止</view>
-    </view>
-    <view class="flash-list">
-      <block wx:for="{{flashSale}}" wx:key="id">
-        <view class="flash-item" data-id="{{item.id}}" bindtap="openProduct">
-          <image class="flash-image" mode="aspectFill" src="{{item.image}}" />
-          <view class="flash-info">
-            <view class="flash-name">{{item.name}}</view>
-            <view class="price-now">¥{{item.price}}</view>
-            <view class="progress-track">
-              <view class="progress-fill" style="width: {{item.progress}}%"></view>
-            </view>
-            <view class="flash-foot">已售 {{item.progress}}%</view>
-          </view>
+    <view class="promo-grid">
+      <block wx:for="{{promoCards}}" wx:key="id">
+        <view class="promo-card">
+          <view class="promo-accent">{{item.accent}}</view>
+          <view class="promo-title">{{item.title}}</view>
+          <view class="promo-desc">{{item.desc}}</view>
         </view>
       </block>
     </view>
-  </view>
 
-  <view class="section-title">
-    <view>
-      <view class="title-main">推荐商品</view>
-      <view class="title-sub">适合首页展示，也方便后续接接口</view>
-    </view>
-  </view>
-  <view class="product-grid">
-    <block wx:for="{{featured}}" wx:key="id">
-      <view class="product-card product-item">
-        <image class="product-image" mode="aspectFill" src="{{item.image}}" data-id="{{item.id}}" bindtap="openProduct" />
-        <view class="product-body" data-id="{{item.id}}" bindtap="openProduct">
-          <view class="product-topline">
-            <view class="product-tag">{{item.tag}}</view>
-            <view class="product-score">★ {{item.rating}}</view>
-          </view>
-          <view class="product-name">{{item.name}}</view>
-          <view class="product-subtitle">{{item.subtitle}}</view>
-          <view class="price-row">
-            <text class="price-now">¥{{item.price}}</text>
-            <text class="price-old">¥{{item.originalPrice}}</text>
-          </view>
+    <view class="section-block">
+      <view class="section-head">
+        <view>
+          <view class="section-title">限时秒杀</view>
+          <view class="section-subtitle">参考淘宝和京东首页的高强度促销区布局</view>
         </view>
-        <view class="product-actions">
-          <view class="pill">销量 {{item.sales}}</view>
-          <view class="action-btn" data-id="{{item.id}}" bindtap="addToCart">加入购物车</view>
+        <view class="section-link">20:00 场</view>
+      </view>
+      <scroll-view class="flash-strip" scroll-x enable-flex>
+        <block wx:for="{{flashSale}}" wx:key="id">
+          <view class="flash-card pressable" data-id="{{item.id}}" bindtap="openProduct" hover-class="card-press-hover">
+            <image class="flash-image" mode="aspectFill" src="{{item.image}}" />
+            <view class="flash-tag">{{item.tag}}</view>
+            <view class="flash-name">{{item.name}}</view>
+            <view class="flash-price-row">
+              <text class="flash-price">¥{{item.price}}</text>
+              <text class="flash-old-price">¥{{item.originalPrice}}</text>
+            </view>
+            <view class="flash-progress-track">
+              <view class="flash-progress-fill" style="width: {{item.progress}}%"></view>
+            </view>
+            <view class="flash-progress-text">已抢 {{item.progress}}%</view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+
+    <view class="section-block">
+      <view class="section-head">
+        <view>
+          <view class="section-title">频道会场</view>
+          <view class="section-subtitle">用频道宫格做分类承接，避免首页信息过散</view>
         </view>
       </view>
-    </block>
+      <view class="channel-grid">
+        <block wx:for="{{channels}}" wx:key="id">
+          <view class="channel-card pressable" data-id="{{item.id}}" bindtap="openCategory" hover-class="card-press-hover">
+            <image class="channel-image" mode="aspectFill" src="{{item.image}}" />
+            <view class="channel-mask">
+              <view class="channel-title">{{item.title}}</view>
+              <view class="channel-desc">{{item.desc}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="section-block goods-block">
+      <view class="section-head">
+        <view>
+          <view class="section-title">猜你喜欢</view>
+          <view class="section-subtitle">双列商品流是拼多多、淘宝首页最稳定的转化结构</view>
+        </view>
+      </view>
+      <view class="goods-grid">
+        <block wx:for="{{featured}}" wx:key="id">
+          <view class="goods-card pressable" hover-class="card-press-hover">
+            <image class="goods-image" mode="aspectFill" src="{{item.image}}" data-id="{{item.id}}" bindtap="openProduct" />
+            <view class="goods-body" data-id="{{item.id}}" bindtap="openProduct">
+              <view class="goods-tag">{{item.tag}}</view>
+              <view class="goods-name">{{item.name}}</view>
+              <view class="goods-subtitle">{{item.subtitle}}</view>
+              <view class="goods-meta">销量 {{item.sales}} · 评分 {{item.rating}}</view>
+              <view class="goods-price-row">
+                <text class="goods-price">¥{{item.price}}</text>
+                <text class="goods-old-price">¥{{item.originalPrice}}</text>
+              </view>
+            </view>
+            <view class="goods-footer">
+              <view class="goods-cart pressable" data-id="{{item.id}}" bindtap="addToCart" hover-class="action-btn-hover" hover-stop-propagation>加入购物车</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
   </view>
 </view>

@@ -1,25 +1,24 @@
-const app = getApp();
+const orderApi = require("../../services/api/order");
 
 Page({
   data: {
     items: [],
     totalAmount: 0,
-    totalCount: 0
+    totalCount: 0,
+    savedAmount: 0,
+    address: null
   },
 
-  onShow() {
-    const summary = app.getCartSummary();
-    this.setData({
-      items: summary.items,
-      totalAmount: summary.totalAmount,
-      totalCount: summary.totalCount
-    });
+  async onShow() {
+    const response = await orderApi.getCheckoutPreview();
+    this.setData(response.data);
   },
 
-  submitOrder() {
+  async submitOrder() {
+    const response = await orderApi.createOrder();
     wx.showModal({
       title: "提交成功",
-      content: "这是演示订单，已为你生成假订单记录。",
+      content: `这是演示订单，已为你生成假订单记录：${response.data.orderId}`,
       showCancel: false,
       success: () => {
         wx.navigateTo({

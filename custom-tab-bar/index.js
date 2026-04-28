@@ -1,4 +1,4 @@
-const app = getApp();
+const cartApi = require("../services/api/cart");
 
 Component({
   data: {
@@ -6,7 +6,7 @@ Component({
     list: [
       {
         pagePath: "/pages/home/index",
-        text: "商城",
+        text: "首页",
         key: "S"
       },
       {
@@ -48,9 +48,10 @@ Component({
       });
     },
 
-    refreshCartCount() {
+    async refreshCartCount() {
+      const response = await cartApi.getCartSummary();
       this.setData({
-        cartCount: app.getCartSummary().totalCount
+        cartCount: response.data.totalCount
       });
     }
   }

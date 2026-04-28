@@ -12,27 +12,29 @@
 }
 
 .side-item {
-  padding: 22rpx 18rpx;
+  padding: 24rpx 18rpx;
   border-radius: 28rpx;
-  background: rgba(255, 255, 255, 0.82);
-  color: #718094;
+  background: rgba(255, 247, 240, 0.94);
+  color: #9f7b63;
+  border: 1px solid rgba(255, 221, 196, 0.9);
 }
 
 .side-item.is-active {
-  background: linear-gradient(180deg, #eff6ff, #dcecff);
-  color: #1d3f6f;
-  box-shadow: 0 14rpx 26rpx rgba(43, 92, 188, 0.12);
+  background: linear-gradient(180deg, #ff9d37, #ff7900);
+  color: #ffffff;
+  box-shadow: 0 14rpx 26rpx rgba(255, 121, 0, 0.24);
 }
 
 .side-item-title {
   font-size: 28rpx;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .side-item-sub {
   margin-top: 8rpx;
   font-size: 20rpx;
   line-height: 1.45;
+  opacity: 0.92;
 }
 
 .catalog-main {
@@ -42,9 +44,10 @@
 
 .category-header {
   position: relative;
-  height: 280rpx;
+  height: 320rpx;
   margin-bottom: 22rpx;
   overflow: hidden;
+  border-radius: 30rpx;
 }
 
 .category-cover {
@@ -58,19 +61,20 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 24rpx;
-  background: linear-gradient(180deg, rgba(24, 41, 69, 0.12), rgba(24, 41, 69, 0.52));
+  padding: 26rpx;
+  background: linear-gradient(180deg, rgba(64, 28, 2, 0.06), rgba(64, 28, 2, 0.58));
   color: #ffffff;
 }
 
 .category-cover-name {
-  font-size: 38rpx;
-  font-weight: 700;
+  font-size: 40rpx;
+  font-weight: 800;
 }
 
 .category-cover-desc {
-  margin-top: 8rpx;
+  margin-top: 10rpx;
   font-size: 24rpx;
+  line-height: 1.5;
 }
 
 .category-product {
@@ -82,9 +86,10 @@
 }
 
 .category-product-image {
-  width: 180rpx;
-  height: 180rpx;
-  border-radius: 22rpx;
+  width: 196rpx;
+  height: 196rpx;
+  border-radius: 24rpx;
+  background: #f5eee8;
 }
 
 .category-product-body {
@@ -94,22 +99,24 @@
 .category-product-name {
   margin-top: 12rpx;
   font-size: 30rpx;
-  font-weight: 700;
+  font-weight: 800;
+  color: #2c221c;
 }
 
 .category-product-subtitle {
-  margin: 10rpx 0 12rpx;
+  margin: 10rpx 0 14rpx;
   font-size: 22rpx;
-  line-height: 1.5;
-  color: #7d8999;
+  line-height: 1.6;
+  color: #8c7668;
 }
 
 .category-metrics {
   display: flex;
+  flex-wrap: wrap;
   gap: 14rpx;
   margin-bottom: 16rpx;
   font-size: 20rpx;
-  color: #909cad;
+  color: #bc7a40;
 }
 
 .small-btn {

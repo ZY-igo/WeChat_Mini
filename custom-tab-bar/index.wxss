@@ -8,8 +8,8 @@
   padding: 18rpx 16rpx 24rpx;
   border-radius: 34rpx;
   background: rgba(255, 255, 255, 0.98);
-  border: 1px solid rgba(228, 234, 243, 0.96);
-  box-shadow: 0 14rpx 40rpx rgba(34, 57, 93, 0.08);
+  border: 1px solid rgba(255, 210, 178, 0.96);
+  box-shadow: 0 16rpx 38rpx rgba(165, 83, 18, 0.14);
   backdrop-filter: blur(24rpx);
 }
 
@@ -21,11 +21,11 @@
   align-items: center;
   gap: 6rpx;
   padding: 10rpx 0;
-  color: #98a4b5;
+  color: #c6a48f;
 }
 
 .tab-item.is-active {
-  color: #1957d2;
+  color: #ff6a00;
 }
 
 .tab-icon {
@@ -36,20 +36,22 @@
   align-items: center;
   justify-content: center;
   border-radius: 22rpx;
-  background: #f4f7fb;
-  border: 1px solid rgba(229, 234, 242, 0.94);
+  background: #fff5eb;
+  border: 1px solid rgba(255, 218, 186, 0.94);
   font-size: 25rpx;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .is-active .tab-icon {
-  background: linear-gradient(135deg, #1d5fe4, #3f8cff);
+  background: linear-gradient(135deg, #ff6a00, #ff9b2f);
   border-color: transparent;
   color: #ffffff;
+  box-shadow: 0 10rpx 22rpx rgba(255, 106, 0, 0.22);
 }
 
 .tab-text {
   font-size: 20rpx;
+  font-weight: 600;
 }
 
 .tab-badge {
@@ -60,7 +62,7 @@
   height: 30rpx;
   padding: 0 8rpx;
   border-radius: 999rpx;
-  background: #ff6b57;
+  background: #ff3b30;
   color: #fff;
   font-size: 18rpx;
   line-height: 30rpx;

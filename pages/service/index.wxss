@@ -4,15 +4,33 @@
   margin-bottom: 20rpx;
 }
 
+.service-head {
+  background: linear-gradient(135deg, #ff9c33, #ff6a00);
+  color: #ffffff;
+  box-shadow: 0 16rpx 34rpx rgba(255, 106, 0, 0.18);
+}
+
 .service-desc,
 .service-text {
   margin-top: 12rpx;
   font-size: 24rpx;
   line-height: 1.7;
-  color: #7d8999;
+}
+
+.service-head .service-desc {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.service-card {
+  background: linear-gradient(180deg, #fffaf6, #ffffff);
+}
+
+.service-card .service-text {
+  color: #867263;
 }
 
 .service-title {
   font-size: 30rpx;
-  font-weight: 700;
+  font-weight: 800;
+  color: #2c221c;
 }

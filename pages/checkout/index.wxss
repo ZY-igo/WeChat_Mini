@@ -3,16 +3,32 @@
   margin-bottom: 20rpx;
 }
 
+.checkout-card:first-child {
+  background: linear-gradient(135deg, #ff9830, #ff6a00);
+  color: #ffffff;
+  box-shadow: 0 16rpx 34rpx rgba(255, 106, 0, 0.18);
+}
+
+.checkout-card:first-child .title-main,
+.checkout-card:first-child .title-sub {
+  color: #ffffff;
+}
+
+.checkout-card:first-child .title-sub {
+  opacity: 0.82;
+}
+
 .checkout-title {
   font-size: 30rpx;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 16rpx;
+  color: #2c221c;
 }
 
 .checkout-text {
   font-size: 24rpx;
   line-height: 1.7;
-  color: #7f8a9a;
+  color: #857263;
 }
 
 .checkout-line {
@@ -21,16 +37,16 @@
   align-items: center;
   padding: 14rpx 0;
   font-size: 24rpx;
-  color: #5f6e82;
+  color: #6e5c50;
 }
 
 .total-line {
   margin-top: 8rpx;
   padding-top: 18rpx;
-  border-top: 1px solid rgba(92, 120, 163, 0.08);
+  border-top: 1px solid rgba(255, 226, 205, 0.92);
   font-size: 30rpx;
-  font-weight: 700;
-  color: #18212f;
+  font-weight: 800;
+  color: #ff5a1f;
 }
 
 .checkout-submit {

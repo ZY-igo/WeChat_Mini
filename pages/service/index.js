@@ -1,4 +1,4 @@
-const { serviceContent } = require("../../utils/data");
+const { getServicePage } = require("../../services/api/service");
 
 Page({
   data: {
@@ -7,9 +7,10 @@ Page({
     records: []
   },
 
-  onLoad(options) {
+  async onLoad(options) {
     const type = options.type || "support";
-    const current = serviceContent[type] || serviceContent.support;
+    const response = await getServicePage(type);
+    const current = response.data;
 
     wx.setNavigationBarTitle({
       title: current.title

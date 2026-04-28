@@ -1,4 +1,4 @@
-const app = getApp();
+const cartApi = require("../../services/api/cart");
 
 Page({
   data: {
@@ -9,8 +9,8 @@ Page({
     recommendList: []
   },
 
-  onShow() {
-    this.refreshData();
+  async onShow() {
+    await this.refreshData();
     this.syncTabBar("/pages/cart/index");
   },
 
@@ -21,33 +21,33 @@ Page({
     }
   },
 
-  refreshData() {
-    const summary = app.getCartSummary();
+  async refreshData() {
+    const response = await cartApi.getCartSummary();
     this.setData({
-      cartItems: summary.items,
-      totalCount: summary.totalCount,
-      totalAmount: summary.totalAmount,
-      savedAmount: summary.savedAmount,
-      recommendList: app.getAllProducts().slice(2, 5)
+      cartItems: response.data.items,
+      totalCount: response.data.totalCount,
+      totalAmount: response.data.totalAmount,
+      savedAmount: response.data.savedAmount,
+      recommendList: response.data.recommendList
     });
   },
 
-  changeQuantity(event) {
+  async changeQuantity(event) {
     const { id, delta } = event.currentTarget.dataset;
     const currentItem = this.data.cartItems.find((item) => String(item.id) === String(id));
     if (!currentItem) {
       return;
     }
 
-    app.updateCart(id, currentItem.quantity + Number(delta));
-    this.refreshData();
+    await cartApi.updateCartItem(id, currentItem.quantity + Number(delta));
+    await this.refreshData();
     this.syncTabBar("/pages/cart/index");
   },
 
-  addRecommend(event) {
+  async addRecommend(event) {
     const { id } = event.currentTarget.dataset;
-    app.addToCart(id, 1);
-    this.refreshData();
+    await cartApi.addToCart(id, 1);
+    await this.refreshData();
     this.syncTabBar("/pages/cart/index");
     wx.showToast({
       title: "已加入购物车",

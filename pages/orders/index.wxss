@@ -10,14 +10,16 @@
   padding: 14rpx 22rpx;
   margin-right: 14rpx;
   border-radius: 999rpx;
-  background: #edf4ff;
-  color: #49617f;
+  background: #fff1e4;
+  color: #d16515;
   font-size: 22rpx;
+  font-weight: 700;
 }
 
 .order-item {
   padding: 26rpx;
   margin-bottom: 22rpx;
+  background: linear-gradient(180deg, #fffaf6, #ffffff);
 }
 
 .order-head,
@@ -34,24 +36,25 @@
 
 .order-id {
   font-size: 26rpx;
-  font-weight: 700;
+  font-weight: 800;
+  color: #2c221c;
 }
 
 .order-line {
   padding: 14rpx 0;
   font-size: 24rpx;
-  color: #718093;
-  border-bottom: 1px solid rgba(92, 120, 163, 0.08);
+  color: #7c685b;
+  border-bottom: 1px solid rgba(255, 229, 212, 0.9);
 }
 
 .order-foot {
   margin-top: 18rpx;
   font-size: 22rpx;
-  color: #8d97a6;
+  color: #a08a7d;
 }
 
 .order-amount {
   font-size: 30rpx;
-  font-weight: 700;
-  color: #18212f;
+  font-weight: 800;
+  color: #ff5a1f;
 }

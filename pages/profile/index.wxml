@@ -1,25 +1,17 @@
 <view class="shell profile-page">
   <view class="hero-card profile-hero">
     <view class="profile-top">
-      <image class="avatar" mode="aspectFill" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" />
+      <image class="avatar" mode="aspectFill" src="{{profile.avatar}}" />
       <view class="profile-meta">
-        <view class="profile-name">MORI 会员</view>
-        <view class="profile-id">ID 20260420</view>
+        <view class="profile-name">{{profile.name}}</view>
+        <view class="profile-id">{{profile.memberId}}</view>
       </view>
-      <view class="pill">BLACK CARD</view>
+      <view class="pill">{{profile.level}}</view>
     </view>
     <view class="profile-stats">
-      <view class="stat-item">
-        <view class="stat-value">3,680</view>
-        <view class="stat-label">成长值</view>
-      </view>
-      <view class="stat-item">
-        <view class="stat-value">6</view>
-        <view class="stat-label">优惠券</view>
-      </view>
-      <view class="stat-item">
-        <view class="stat-value">12</view>
-        <view class="stat-label">全部订单</view>
+      <view class="stat-item" wx:for="{{profile.stats}}" wx:key="label">
+        <view class="stat-value">{{item.value}}</view>
+        <view class="stat-label">{{item.label}}</view>
       </view>
     </view>
   </view>
@@ -28,13 +20,13 @@
     <view class="section-title">
       <view>
         <view class="title-main">我的订单</view>
-        <view class="title-sub">查看配送、签收和售后进度</view>
+        <view class="title-sub">查看配送、签收和售后进度。</view>
       </view>
-      <view class="pill" bindtap="openOrders">全部订单</view>
+      <view class="pill pressable" bindtap="openOrders" hover-class="pressable-hover">全部订单</view>
     </view>
     <view class="order-strip">
       <block wx:for="{{orderTabs}}" wx:key="label">
-        <view class="order-tab" bindtap="openOrders">
+        <view class="order-tab pressable" bindtap="openOrders" hover-class="pressable-hover">
           <view class="order-count">{{item.count}}</view>
           <view class="order-label">{{item.label}}</view>
         </view>
@@ -45,11 +37,11 @@
   <view class="surface-card tools-card">
     <view class="settings-head">
       <view class="title-main">账户与设置</view>
-      <view class="title-sub">主流 App 常见设置页结构</view>
+      <view class="title-sub">保留独立能力入口，后续可分别接用户、券包和会员接口。</view>
     </view>
     <view class="settings-group">
       <block wx:for="{{profileTools}}" wx:key="key">
-        <view class="tool-row" data-key="{{item.key}}" bindtap="openService">
+        <view class="tool-row pressable" data-key="{{item.key}}" bindtap="openService" hover-class="pressable-hover">
           <view class="tool-main">
             <view class="tool-badge">{{index + 1}}</view>
             <view>
@@ -65,7 +57,7 @@
 
   <view class="surface-card member-card">
     <view class="member-title">会员权益</view>
-    <view class="member-copy">免邮券、专属折扣、新品优先购和生日礼遇都可以在演示页继续查看。</view>
-    <view class="action-btn" data-key="member" bindtap="openService">查看权益详情</view>
+    <view class="member-copy">免邮券、专属折扣、新品优先购和生日礼遇都已经拆到独立服务页，后续可继续接真实会员体系。</view>
+    <view class="action-btn pressable" data-key="member" bindtap="openService" hover-class="action-btn-hover">查看权益详情</view>
   </view>
 </view>

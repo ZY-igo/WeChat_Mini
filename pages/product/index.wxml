@@ -33,18 +33,31 @@
           <view class="feature-pill">{{item}}</view>
         </block>
       </view>
-      <view class="detail-copy">当前为前端假数据详情页，结构已经按真实电商详情做了基础拆分，后面可以继续接图文详情、SKU 和评价接口。</view>
+      <view class="detail-copy">当前详情页使用 Mock 数据，但字段结构已经按真实电商详情模型拆分，后续可以继续补图文详情、SKU、评价和推荐流接口。</view>
     </view>
 
     <view class="surface-card detail-section">
       <view class="title-main small-title">配送与服务</view>
-      <view class="service-line">预计 48 小时内发货，支持售后与在线客服</view>
-      <view class="ghost-btn support-btn" bindtap="openService">联系客服</view>
+      <view class="service-line">预计 48 小时内发货，支持售后与在线客服。服务类能力已单独预留页面接口。</view>
+      <view class="ghost-btn support-btn pressable" bindtap="openService" hover-class="ghost-btn-hover">联系客服</view>
+    </view>
+
+    <view class="surface-card detail-section">
+      <view class="title-main small-title">你可能还会喜欢</view>
+      <scroll-view class="detail-recommend-strip" scroll-x enable-flex>
+        <block wx:for="{{recommendList}}" wx:key="id">
+          <view class="detail-recommend-card pressable" data-id="{{item.id}}" bindtap="openProduct" hover-class="card-press-hover">
+            <image class="detail-recommend-image" mode="aspectFill" src="{{item.image}}" />
+            <view class="detail-recommend-name">{{item.name}}</view>
+            <view class="detail-recommend-price">¥{{item.price}}</view>
+          </view>
+        </block>
+      </scroll-view>
     </view>
   </view>
 
   <view class="detail-actions">
-    <view class="ghost-btn detail-btn" bindtap="addToCart">加入购物车</view>
-    <view class="action-btn detail-btn" bindtap="buyNow">立即购买</view>
+    <view class="ghost-btn detail-btn pressable" bindtap="addToCart" hover-class="ghost-btn-hover">加入购物车</view>
+    <view class="action-btn detail-btn pressable" bindtap="buyNow" hover-class="action-btn-hover">立即购买</view>
   </view>
 </view>

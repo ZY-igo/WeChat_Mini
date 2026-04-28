@@ -1,6 +1,6 @@
 <view class="tab-shell">
   <block wx:for="{{list}}" wx:key="pagePath">
-    <view class="tab-item {{selected === index ? 'is-active' : ''}}" data-index="{{index}}" data-path="{{item.pagePath}}" bindtap="switchTab">
+    <view class="tab-item pressable {{selected === index ? 'is-active' : ''}}" data-index="{{index}}" data-path="{{item.pagePath}}" bindtap="switchTab" hover-class="pressable-hover">
       <view class="tab-icon">
         <text>{{item.key}}</text>
         <view wx:if="{{item.pagePath === '/pages/cart/index' && cartCount > 0}}" class="tab-badge">{{cartCount}}</view>

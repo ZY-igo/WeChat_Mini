@@ -1,20 +1,26 @@
-const app = getApp();
-const { heroBanners, catalog, flashSale, quickEntries } = require("../../utils/data");
+const { getHomePage } = require("../../services/api/home");
+const cartApi = require("../../services/api/cart");
 
 Page({
   data: {
-    heroBanners,
-    catalog,
-    flashSale,
-    quickEntries,
+    topKeywords: [],
+    notice: "",
+    heroBanners: [],
+    quickEntries: [],
+    promoCards: [],
+    flashSale: [],
+    channels: [],
     featured: []
   },
 
-  onShow() {
+  async onShow() {
     this.syncTabBar("/pages/home/index");
-    this.setData({
-      featured: app.getAllProducts().slice(0, 4)
-    });
+    await this.loadPageData();
+  },
+
+  async loadPageData() {
+    const response = await getHomePage();
+    this.setData(response.data);
   },
 
   syncTabBar(path) {
@@ -31,19 +37,13 @@ Page({
     });
   },
 
-  addToCart(event) {
+  async addToCart(event) {
     const { id } = event.currentTarget.dataset;
-    app.addToCart(id, 1);
+    await cartApi.addToCart(id, 1);
     this.syncTabBar("/pages/home/index");
     wx.showToast({
       title: "已加入购物车",
       icon: "success"
-    });
-  },
-
-  goCategory() {
-    wx.switchTab({
-      url: "/pages/category/index"
     });
   },
 
@@ -59,6 +59,13 @@ Page({
     const { value } = event.currentTarget.dataset;
     wx.navigateTo({
       url: `/pages/service/index?type=${value}`
+    });
+  },
+
+  openSearch() {
+    wx.showToast({
+      title: "搜索接口已预留",
+      icon: "none"
     });
   }
 });
