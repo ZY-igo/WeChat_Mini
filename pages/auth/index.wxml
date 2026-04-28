@@ -1,0 +1,61 @@
+<view class="shell auth-page">
+  <view class="hero-card auth-hero">
+    <view class="auth-badge">MORI ACCESS</view>
+    <view class="auth-title">登录后访问购物车、订单和个人中心</view>
+    <view class="auth-copy">商品浏览、分类查看和服务介绍仍然支持游客访问，账号直接保存在前端本地。</view>
+  </view>
+
+  <view class="surface-card auth-card">
+    <view class="mode-switch">
+      <view class="mode-pill {{mode === 'login' ? 'mode-pill-active' : ''}}" data-mode="login" bindtap="switchMode">登录</view>
+      <view class="mode-pill {{mode === 'register' ? 'mode-pill-active' : ''}}" data-mode="register" bindtap="switchMode">注册</view>
+    </view>
+
+    <block wx:if="{{mode === 'login'}}">
+      <view class="form-group">
+        <view class="field-label">账号</view>
+        <input class="field-input" placeholder="请输入账号" value="{{loginForm.username}}" data-field="username" bindinput="updateLoginField" />
+      </view>
+      <view class="form-group">
+        <view class="field-label">密码</view>
+        <input class="field-input" password placeholder="请输入密码" value="{{loginForm.password}}" data-field="password" bindinput="updateLoginField" />
+      </view>
+      <view class="action-btn auth-submit pressable" bindtap="submitLogin" hover-class="action-btn-hover">立即登录</view>
+    </block>
+
+    <block wx:else>
+      <view class="form-group">
+        <view class="field-label">昵称</view>
+        <input class="field-input" placeholder="请输入昵称" value="{{registerForm.nickname}}" data-field="nickname" bindinput="updateRegisterField" />
+      </view>
+      <view class="form-group">
+        <view class="field-label">账号</view>
+        <input class="field-input" placeholder="请输入新账号" value="{{registerForm.username}}" data-field="username" bindinput="updateRegisterField" />
+      </view>
+      <view class="form-group">
+        <view class="field-label">密码</view>
+        <input class="field-input" password placeholder="请输入密码" value="{{registerForm.password}}" data-field="password" bindinput="updateRegisterField" />
+      </view>
+      <view class="action-btn auth-submit pressable" bindtap="submitRegister" hover-class="action-btn-hover">注册并登录</view>
+    </block>
+  </view>
+
+  <view class="surface-card auth-card">
+    <view class="section-title">
+      <view>
+        <view class="title-main">默认账号</view>
+        <view class="title-sub">点一下即可自动填入，方便直接测试</view>
+      </view>
+    </view>
+    <block wx:for="{{demoAccounts}}" wx:key="username">
+      <view class="demo-row pressable" data-username="{{item.username}}" bindtap="fillDemo" hover-class="pressable-hover">
+        <view>
+          <view class="demo-title">{{item.nickname}}</view>
+          <view class="demo-sub">账号：{{item.username}}</view>
+        </view>
+        <view class="pill">点此填充</view>
+      </view>
+    </block>
+    <view class="demo-hint">默认密码：mori/123456，demo/demo123，guestvip/888888</view>
+  </view>
+</view>

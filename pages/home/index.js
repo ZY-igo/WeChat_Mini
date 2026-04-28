@@ -1,5 +1,6 @@
 const { getHomePage } = require("../../services/api/home");
 const cartApi = require("../../services/api/cart");
+const { requireLogin } = require("../../utils/auth");
 
 Page({
   data: {
@@ -39,6 +40,10 @@ Page({
 
   async addToCart(event) {
     const { id } = event.currentTarget.dataset;
+    if (!requireLogin("/pages/home/index")) {
+      return;
+    }
+
     await cartApi.addToCart(id, 1);
     this.syncTabBar("/pages/home/index");
     wx.showToast({

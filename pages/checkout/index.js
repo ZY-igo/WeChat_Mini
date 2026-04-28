@@ -1,4 +1,5 @@
 const orderApi = require("../../services/api/order");
+const { requireLogin } = require("../../utils/auth");
 
 Page({
   data: {
@@ -10,11 +11,19 @@ Page({
   },
 
   async onShow() {
+    if (!requireLogin("/pages/checkout/index")) {
+      return;
+    }
+
     const response = await orderApi.getCheckoutPreview();
     this.setData(response.data);
   },
 
   async submitOrder() {
+    if (!requireLogin("/pages/checkout/index")) {
+      return;
+    }
+
     const response = await orderApi.createOrder();
     wx.showModal({
       title: "提交成功",

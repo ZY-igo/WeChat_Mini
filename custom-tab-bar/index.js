@@ -1,4 +1,6 @@
 const cartApi = require("../services/api/cart");
+const authStore = require("../services/store/authStore");
+const { requireLogin } = require("../utils/auth");
 
 Component({
   data: {
@@ -37,6 +39,11 @@ Component({
   methods: {
     switchTab(event) {
       const { path, index } = event.currentTarget.dataset;
+      if (path === "/pages/cart/index" && !authStore.isLoggedIn()) {
+        requireLogin(path);
+        return;
+      }
+
       this.setData({ selected: index });
       wx.switchTab({ url: path });
     },
@@ -49,6 +56,13 @@ Component({
     },
 
     async refreshCartCount() {
+      if (!authStore.isLoggedIn()) {
+        this.setData({
+          cartCount: 0
+        });
+        return;
+      }
+
       const response = await cartApi.getCartSummary();
       this.setData({
         cartCount: response.data.totalCount

@@ -1,4 +1,5 @@
 const cartApi = require("../../services/api/cart");
+const { requireLogin } = require("../../utils/auth");
 
 Page({
   data: {
@@ -10,6 +11,11 @@ Page({
   },
 
   async onShow() {
+    if (!requireLogin("/pages/cart/index")) {
+      this.syncTabBar("/pages/home/index");
+      return;
+    }
+
     await this.refreshData();
     this.syncTabBar("/pages/cart/index");
   },
@@ -46,6 +52,10 @@ Page({
 
   async addRecommend(event) {
     const { id } = event.currentTarget.dataset;
+    if (!requireLogin("/pages/cart/index")) {
+      return;
+    }
+
     await cartApi.addToCart(id, 1);
     await this.refreshData();
     this.syncTabBar("/pages/cart/index");
@@ -63,6 +73,10 @@ Page({
   },
 
   goCheckout() {
+    if (!requireLogin("/pages/checkout/index")) {
+      return;
+    }
+
     wx.navigateTo({
       url: "/pages/checkout/index"
     });

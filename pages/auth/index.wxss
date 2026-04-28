@@ -1,0 +1,147 @@
+.auth-page::before,
+.auth-page::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+}
+
+.auth-page::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 340rpx;
+  background: linear-gradient(180deg, #ff6a00 0%, #ff922d 100%);
+}
+
+.auth-page::after {
+  top: -100rpx;
+  right: -70rpx;
+  width: 320rpx;
+  height: 320rpx;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+}
+
+.auth-hero,
+.auth-card {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-hero {
+  padding: 32rpx 30rpx;
+  margin-bottom: 24rpx;
+  background: linear-gradient(135deg, #ff8f1f, #ff6a00);
+  color: #ffffff;
+  box-shadow: 0 16rpx 38rpx rgba(255, 106, 0, 0.22);
+}
+
+.auth-badge {
+  display: inline-flex;
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.auth-title {
+  margin-top: 22rpx;
+  font-size: 38rpx;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.auth-copy {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.auth-card {
+  padding: 30rpx;
+  margin-bottom: 24rpx;
+}
+
+.mode-switch {
+  display: flex;
+  padding: 8rpx;
+  margin-bottom: 28rpx;
+  border-radius: 999rpx;
+  background: #fff5ec;
+}
+
+.mode-pill {
+  flex: 1;
+  height: 72rpx;
+  border-radius: 999rpx;
+  text-align: center;
+  line-height: 72rpx;
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #9e8a7d;
+}
+
+.mode-pill-active {
+  background: linear-gradient(135deg, #ff6a00, #ff9b2f);
+  color: #ffffff;
+  box-shadow: 0 10rpx 24rpx rgba(255, 106, 0, 0.18);
+}
+
+.form-group {
+  margin-bottom: 22rpx;
+}
+
+.field-label {
+  margin-bottom: 12rpx;
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #8d7668;
+}
+
+.field-input {
+  height: 88rpx;
+  padding: 0 24rpx;
+  border-radius: 24rpx;
+  background: #fff9f4;
+  border: 1px solid rgba(255, 219, 191, 0.92);
+  font-size: 26rpx;
+  color: #2c221c;
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 10rpx;
+}
+
+.demo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1px solid rgba(255, 229, 212, 0.96);
+}
+
+.demo-row:last-of-type {
+  border-bottom: none;
+}
+
+.demo-title {
+  font-size: 28rpx;
+  font-weight: 800;
+  color: #2c221c;
+}
+
+.demo-sub {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #9a8577;
+}
+
+.demo-hint {
+  margin-top: 22rpx;
+  font-size: 22rpx;
+  line-height: 1.7;
+  color: #9a8577;
+}

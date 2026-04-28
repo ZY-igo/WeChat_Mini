@@ -7,7 +7,8 @@
     "pages/product/index",
     "pages/orders/index",
     "pages/service/index",
-    "pages/checkout/index"
+    "pages/checkout/index",
+    "pages/auth/index"
   ],
   "window": {
     "navigationBarTitleText": "MORI SHOP",

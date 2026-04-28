@@ -1,5 +1,6 @@
 const { getProductDetail } = require("../../services/api/catalog");
 const cartApi = require("../../services/api/cart");
+const { requireLogin } = require("../../utils/auth");
 
 Page({
   data: {
@@ -14,7 +15,7 @@ Page({
 
   async addToCart() {
     const { product } = this.data;
-    if (!product) {
+    if (!product || !requireLogin(`/pages/product/index?id=${product.id}`)) {
       return;
     }
 
@@ -27,7 +28,7 @@ Page({
 
   buyNow() {
     const { product } = this.data;
-    if (!product) {
+    if (!product || !requireLogin(`/pages/product/index?id=${product.id}`)) {
       return;
     }
 
