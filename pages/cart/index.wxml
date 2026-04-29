@@ -34,7 +34,7 @@
   <view wx:else class="surface-card empty-card">
     <view class="empty-title">购物车还是空的</view>
     <view class="empty-desc">先去首页挑几件喜欢的商品，再回来统一结算。</view>
-    <navigator class="action-btn pressable" open-type="switchTab" url="/pages/home/index" hover-class="action-btn-hover">去逛商城</navigator>
+    <navigator class="action-btn full-btn pressable" open-type="switchTab" url="/pages/home/index" hover-class="action-btn-hover">去逛商城</navigator>
   </view>
 
   <view class="surface-card summary-card">
@@ -50,13 +50,13 @@
       <text>合计</text>
       <text>¥{{totalAmount}}</text>
     </view>
-    <view class="action-btn checkout-btn pressable" bindtap="goCheckout" hover-class="action-btn-hover">去结算</view>
+    <view class="action-btn checkout-btn full-btn pressable" bindtap="goCheckout" hover-class="action-btn-hover">去结算</view>
   </view>
 
   <view class="section-title">
     <view>
       <view class="title-main">你可能还想买</view>
-      <view class="title-sub">顺手搭配一起带走。</view>
+      <view class="title-sub">顺手搭配一起带走</view>
     </view>
   </view>
   <scroll-view class="recommend-strip" scroll-x enable-flex>
@@ -65,7 +65,7 @@
         <image class="recommend-image" mode="aspectFill" src="{{item.image}}" data-id="{{item.id}}" bindtap="openProduct" />
         <view class="recommend-name">{{item.name}}</view>
         <view class="price-now">¥{{item.price}}</view>
-        <view class="ghost-btn pressable" data-id="{{item.id}}" bindtap="addRecommend" hover-class="ghost-btn-hover" hover-stop-propagation>加入</view>
+        <view class="ghost-btn full-btn pressable" data-id="{{item.id}}" bindtap="addRecommend" hover-class="ghost-btn-hover" hover-stop-propagation>加入</view>
       </view>
     </block>
   </scroll-view>

@@ -5,7 +5,7 @@
       <view class="profile-meta">
         <view class="profile-name-row">
           <view class="profile-name">{{profile.name}}</view>
-          <view wx:if="{{!isLoggedIn}}" class="login-chip">去登录</view>
+          <view wx:if="{{!isLoggedIn}}" class="login-chip">立即登录</view>
         </view>
         <view class="profile-id">{{profile.memberId}}</view>
         <view wx:if="{{isLoggedIn}}" class="profile-account">登录账号：{{currentUser.username}}</view>
@@ -62,16 +62,16 @@
 
   <view class="surface-card member-card">
     <view class="member-title">会员权益</view>
-    <view class="member-copy">专属折扣、优先购和服务权益在登录后展示完整信息。</view>
+    <view class="member-copy">专属折扣、优先购和服务权益会在登录后展示完整信息。</view>
     <view wx:if="{{isLoggedIn}}" class="action-btn pressable" data-key="member" bindtap="openService" hover-class="action-btn-hover">查看权益详情</view>
-    <view wx:else class="ghost-btn pressable member-login-btn" bindtap="openAuth" hover-class="ghost-btn-hover">登录后查看</view>
+    <view wx:else class="ghost-btn pressable member-login-btn" bindtap="openAuth" hover-class="ghost-btn-hover">立即登录</view>
   </view>
 
   <view wx:if="{{isLoggedIn}}" class="surface-card account-card">
     <view class="section-title">
       <view>
         <view class="title-main">账号管理</view>
-        <view class="title-sub">当前账号信息保存在小程序前端本地存储中</view>
+        <view class="title-sub">当前账号信息保存在小程序本地存储中</view>
       </view>
     </view>
     <view class="account-row">

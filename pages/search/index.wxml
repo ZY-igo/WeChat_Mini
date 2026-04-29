@@ -1,0 +1,49 @@
+<view class="shell service-page">
+  <view class="surface-card service-head">
+    <view class="title-main">搜索商品</view>
+    <view class="service-desc">当前为本地 mock 搜索，可搜索商品名、标签和副标题。</view>
+    <view class="search-form">
+      <input class="field-input" confirm-type="search" placeholder="试试：风衣、香薰、面包" value="{{keyword}}" bindinput="updateKeyword" bindconfirm="confirmSearch" />
+      <view class="action-btn compact-search-btn pressable" bindtap="confirmSearch" hover-class="action-btn-hover">搜索</view>
+    </view>
+  </view>
+
+  <view class="surface-card service-card">
+    <view class="service-title">热门搜索</view>
+    <view class="tag-wrap">
+      <block wx:for="{{hotKeywords}}" wx:key="*this">
+        <view class="keyword-pill tag-pill pressable" data-keyword="{{item}}" bindtap="useKeyword" hover-class="pressable-hover">{{item}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view class="surface-card service-card">
+    <view class="service-title">分类建议</view>
+    <view class="tag-wrap">
+      <block wx:for="{{categorySuggestions}}" wx:key="*this">
+        <view class="ghost-btn tag-button pressable" data-keyword="{{item}}" bindtap="useKeyword" hover-class="ghost-btn-hover">{{item}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view class="surface-card service-card">
+    <view class="service-title">搜索结果</view>
+    <block wx:if="{{results.length}}">
+      <block wx:for="{{results}}" wx:key="id">
+        <view class="search-result-card">
+          <image class="search-result-image" mode="aspectFill" src="{{item.image}}" data-id="{{item.id}}" bindtap="openProduct" />
+          <view class="search-result-body">
+            <view class="search-result-title" data-id="{{item.id}}" bindtap="openProduct">{{item.name}}</view>
+            <view class="service-text">{{item.subtitle}}</view>
+            <view class="coupon-meta">标签：{{item.tag}} · 销量 {{item.sales}} · 评分 {{item.rating}}</view>
+            <view class="search-result-footer">
+              <view class="price-now">¥{{item.price}}</view>
+              <view class="ghost-btn compact-btn pressable" data-id="{{item.id}}" bindtap="addToCart" hover-class="ghost-btn-hover">加入购物车</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <view wx:else class="service-text">没有找到匹配的商品，换个关键词试试。</view>
+  </view>
+</view>

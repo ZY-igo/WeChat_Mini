@@ -10,6 +10,11 @@
   box-shadow: 0 16rpx 34rpx rgba(255, 106, 0, 0.18);
 }
 
+.service-head .title-main,
+.service-head .service-desc {
+  color: #ffffff;
+}
+
 .service-desc,
 .service-text {
   margin-top: 12rpx;
@@ -17,16 +22,8 @@
   line-height: 1.7;
 }
 
-.service-head .service-desc {
-  color: rgba(255, 255, 255, 0.82);
-}
-
 .service-card {
   background: linear-gradient(180deg, #fffaf6, #ffffff);
-}
-
-.service-card .service-text {
-  color: #867263;
 }
 
 .service-title {
@@ -35,18 +32,8 @@
   color: #2c221c;
 }
 
-.form-group {
-  margin-top: 18rpx;
-}
-
-.field-label {
-  margin-bottom: 12rpx;
-  font-size: 24rpx;
-  font-weight: 700;
-  color: #8d7668;
-}
-
 .field-input {
+  flex: 1;
   height: 88rpx;
   padding: 0 24rpx;
   border-radius: 24rpx;
@@ -56,57 +43,80 @@
   color: #2c221c;
 }
 
-.address-head,
-.coupon-row,
-.search-result-footer {
+.search-form {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20rpx;
+  gap: 16rpx;
+  margin-top: 24rpx;
 }
 
-.coupon-row {
+.compact-search-btn {
+  width: 180rpx;
+}
+
+.tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 20rpx;
+}
+
+.tag-pill,
+.tag-button {
+  width: auto;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48rpx;
+  padding: 0 20rpx;
+  border-radius: 999rpx;
+  background: #fff0e3;
+  color: #d16515;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.search-result-card {
+  display: flex;
+  gap: 18rpx;
   padding: 24rpx 0;
   border-bottom: 1px solid rgba(255, 229, 212, 0.96);
 }
 
-.coupon-row:last-child {
-  padding-bottom: 0;
+.search-result-card:last-child {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
-.coupon-btn,
-.compact-btn {
+.search-result-image {
   width: 180rpx;
-  flex-shrink: 0;
+  height: 180rpx;
+  border-radius: 24rpx;
+  background: #f6eee8;
 }
 
-.full-btn {
-  width: 100%;
-  margin-top: 20rpx;
-  box-sizing: border-box;
+.search-result-body {
+  flex: 1;
 }
 
-.coupon-title {
-  font-size: 28rpx;
+.search-result-title {
+  font-size: 30rpx;
   font-weight: 800;
   color: #2c221c;
+}
+
+.search-result-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18rpx;
 }
 
 .coupon-meta {
   margin-top: 12rpx;
   font-size: 22rpx;
   color: #9a8577;
-}
-
-.coupon-user-card {
-  padding: 24rpx;
-  margin-top: 18rpx;
-  border-radius: 24rpx;
-  background: #fffaf6;
-  border: 1px solid rgba(255, 229, 212, 0.96);
-}
-
-.coupon-used {
-  opacity: 0.7;
 }

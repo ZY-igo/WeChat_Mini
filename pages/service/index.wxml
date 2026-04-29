@@ -4,10 +4,72 @@
     <view class="service-desc">{{desc}}</view>
   </view>
 
-  <block wx:for="{{records}}" wx:key="title">
-    <view class="surface-card service-card pressable" hover-class="card-press-hover">
-      <view class="service-title">{{item.title}}</view>
-      <view class="service-text">{{item.text}}</view>
+  <block wx:if="{{type === 'address'}}">
+    <view class="surface-card service-card">
+      <view class="service-title">新增地址</view>
+      <view class="form-group">
+        <view class="field-label">姓名</view>
+        <input class="field-input" placeholder="请输入收货人姓名" value="{{addressForm.name}}" data-field="name" bindinput="updateAddressField" />
+      </view>
+      <view class="form-group">
+        <view class="field-label">电话号码</view>
+        <input class="field-input" type="number" maxlength="11" placeholder="请输入 11 位手机号" value="{{addressForm.phone}}" data-field="phone" bindinput="updateAddressField" />
+      </view>
+      <view class="form-group">
+        <view class="field-label">收货地址</view>
+        <input class="field-input" placeholder="请输入详细收货地址" value="{{addressForm.detail}}" data-field="detail" bindinput="updateAddressField" />
+      </view>
+      <view class="action-btn full-btn pressable" bindtap="saveAddress" hover-class="action-btn-hover">保存地址</view>
     </view>
+
+    <block wx:for="{{addressList}}" wx:key="id">
+      <view class="surface-card service-card">
+        <view class="address-head">
+          <view class="service-title">{{item.name}} {{item.phone}}</view>
+          <view wx:if="{{item.isDefault}}" class="pill">默认地址</view>
+        </view>
+        <view class="service-text">{{item.detail}}</view>
+        <view wx:if="{{!item.isDefault}}" class="ghost-btn full-btn pressable" data-id="{{item.id}}" bindtap="setDefaultAddress" hover-class="ghost-btn-hover">设为默认</view>
+      </view>
+    </block>
+  </block>
+
+  <block wx:elif="{{type === 'coupon'}}">
+    <view class="surface-card service-card">
+      <view class="service-title">可领取优惠券</view>
+      <block wx:for="{{centerCoupons}}" wx:key="id">
+        <view class="coupon-row">
+          <view>
+            <view class="coupon-title">{{item.title}}</view>
+            <view class="service-text">{{item.description}} · 有效期至 {{item.expiry}}</view>
+          </view>
+          <view wx:if="{{item.claimed}}" class="pill">已领取</view>
+          <view wx:else class="action-btn coupon-btn pressable" data-id="{{item.id}}" bindtap="claimCoupon" hover-class="action-btn-hover">立即领取</view>
+        </view>
+      </block>
+    </view>
+
+    <view class="surface-card service-card">
+      <view class="service-title">我的优惠券</view>
+      <block wx:if="{{userCoupons.length}}">
+        <block wx:for="{{userCoupons}}" wx:key="id">
+          <view class="coupon-user-card {{item.status === 'used' ? 'coupon-used' : ''}}">
+            <view class="coupon-title">{{item.title}}</view>
+            <view class="service-text">{{item.description}} · 满 {{item.minSpend}} 可用 · 减 {{item.discount}}</view>
+            <view class="coupon-meta">状态：{{item.status === 'used' ? '已使用' : '可使用'}}，有效期至 {{item.expiry}}</view>
+          </view>
+        </block>
+      </block>
+      <view wx:else class="service-text">还没有已领取的优惠券。</view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <block wx:for="{{records}}" wx:key="title">
+      <view class="surface-card service-card pressable" hover-class="card-press-hover">
+        <view class="service-title">{{item.title}}</view>
+        <view class="service-text">{{item.text}}</view>
+      </view>
+    </block>
   </block>
 </view>

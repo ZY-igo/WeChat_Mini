@@ -1,5 +1,6 @@
 const { getHomePage } = require("../../services/api/home");
 const cartApi = require("../../services/api/cart");
+const { ensureCurrentLocation, requestLocationWithFallback } = require("../../utils/location");
 const { requireLogin } = require("../../utils/auth");
 
 Page({
@@ -11,17 +12,34 @@ Page({
     promoCards: [],
     flashSale: [],
     channels: [],
-    featured: []
+    featured: [],
+    locationLabel: "定位中..."
   },
 
   async onShow() {
     this.syncTabBar("/pages/home/index");
-    await this.loadPageData();
+    await Promise.all([
+      this.loadPageData(),
+      this.loadLocation()
+    ]);
   },
 
   async loadPageData() {
     const response = await getHomePage();
     this.setData(response.data);
+  },
+
+  async loadLocation() {
+    try {
+      const location = await ensureCurrentLocation();
+      this.setData({
+        locationLabel: location.label || "点击定位"
+      });
+    } catch (error) {
+      this.setData({
+        locationLabel: "点击定位"
+      });
+    }
   },
 
   syncTabBar(path) {
@@ -62,15 +80,50 @@ Page({
 
   openService(event) {
     const { value } = event.currentTarget.dataset;
+    if ((value === "address" || value === "coupon" || value === "member") && !requireLogin(`/pages/service/index?type=${value}`)) {
+      return;
+    }
+
     wx.navigateTo({
       url: `/pages/service/index?type=${value}`
     });
   },
 
   openSearch() {
-    wx.showToast({
-      title: "搜索接口已预留",
-      icon: "none"
+    wx.navigateTo({
+      url: "/pages/search/index"
     });
+  },
+
+  chooseKeyword(event) {
+    const { keyword } = event.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/search/index?keyword=${encodeURIComponent(keyword)}`
+    });
+  },
+
+  async refreshLocation() {
+    this.setData({
+      locationLabel: "定位中..."
+    });
+
+    try {
+      const location = await requestLocationWithFallback();
+      this.setData({
+        locationLabel: location.label || "点击定位"
+      });
+      wx.showToast({
+        title: "位置已更新",
+        icon: "success"
+      });
+    } catch (error) {
+      this.setData({
+        locationLabel: "点击定位"
+      });
+      wx.showToast({
+        title: "定位失败，请稍后重试",
+        icon: "none"
+      });
+    }
   }
 });

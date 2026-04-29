@@ -1,8 +1,8 @@
 <view class="shell auth-page">
   <view class="hero-card auth-hero">
     <view class="auth-badge">MORI ACCESS</view>
-    <view class="auth-title">登录后访问购物车、订单和个人中心</view>
-    <view class="auth-copy">商品浏览、分类查看和服务介绍仍然支持游客访问，账号直接保存在前端本地。</view>
+    <view class="auth-title">登录后可访问购物车、订单和个人中心</view>
+    <view class="auth-copy">商品浏览、分类查看和服务介绍仍然支持游客访问，账号保存在小程序本地。</view>
   </view>
 
   <view class="surface-card auth-card">
@@ -44,7 +44,7 @@
     <view class="section-title">
       <view>
         <view class="title-main">默认账号</view>
-        <view class="title-sub">点一下即可自动填入，方便直接测试</view>
+        <view class="title-sub">点一下即可自动填充，方便直接测试</view>
       </view>
     </view>
     <block wx:for="{{demoAccounts}}" wx:key="username">

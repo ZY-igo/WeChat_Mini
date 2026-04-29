@@ -1,7 +1,9 @@
 const { mockRequest } = require("../core/http");
-const { orderTabs, deliveryAddress } = require("../mock/shopData");
+const { orderTabs } = require("../mock/shopData");
 const cartApi = require("./cart");
 const orderStore = require("../store/orderStore");
+const addressStore = require("../store/addressStore");
+const couponStore = require("../store/couponStore");
 
 function buildOrderId() {
   const now = new Date();
@@ -26,6 +28,7 @@ function getOrders() {
 
 async function getCheckoutPreview() {
   const cartResponse = await cartApi.getCartSummary();
+  const couponSummary = couponStore.getCouponSummary(cartResponse.data.totalAmount);
 
   return mockRequest({
     url: "/api/orders/preview",
@@ -34,14 +37,25 @@ async function getCheckoutPreview() {
       totalAmount: cartResponse.data.totalAmount,
       totalCount: cartResponse.data.totalCount,
       savedAmount: cartResponse.data.savedAmount,
-      address: deliveryAddress
+      address: addressStore.getDefaultAddress(),
+      couponList: couponSummary.availableCoupons,
+      discountAmount: 0,
+      payableAmount: cartResponse.data.totalAmount
     }
   });
 }
 
-async function createOrder() {
+async function createOrder(selectedCouponId = "") {
   const previewResponse = await getCheckoutPreview();
   const orderId = buildOrderId();
+  const couponSummary = couponStore.getCouponSummary(
+    previewResponse.data.totalAmount,
+    selectedCouponId
+  );
+  const payableAmount = Number(
+    (previewResponse.data.totalAmount - couponSummary.discountAmount).toFixed(2)
+  );
+
   const nextOrder = {
     id: orderId,
     status: "待发货",
@@ -50,11 +64,12 @@ async function createOrder() {
       quantity: item.quantity,
       price: item.price
     })),
-    amount: previewResponse.data.totalAmount,
+    amount: payableAmount,
     time: new Date().toISOString().slice(0, 16).replace("T", " ")
   };
 
   orderStore.prependOrder(nextOrder);
+  couponStore.markCouponUsed(selectedCouponId, orderId);
   await cartApi.clearCart();
 
   return mockRequest({
@@ -62,7 +77,10 @@ async function createOrder() {
     method: "POST",
     mockData: {
       orderId,
-      ...previewResponse.data
+      ...previewResponse.data,
+      selectedCoupon: couponSummary.selectedCoupon,
+      discountAmount: couponSummary.discountAmount,
+      payableAmount
     }
   });
 }

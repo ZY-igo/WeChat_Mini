@@ -132,6 +132,7 @@
 .checkout-btn {
   width: 100%;
   margin-top: 20rpx;
+  box-sizing: border-box;
 }
 
 .recommend-strip {

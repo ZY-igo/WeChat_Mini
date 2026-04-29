@@ -4,6 +4,7 @@
     "pages/category/index",
     "pages/cart/index",
     "pages/profile/index",
+    "pages/search/index",
     "pages/product/index",
     "pages/orders/index",
     "pages/service/index",
@@ -16,6 +17,11 @@
     "navigationBarTextStyle": "black",
     "backgroundColor": "#f5f7fb",
     "backgroundTextStyle": "dark"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于获取你当前所在位置，展示首页定位信息。"
+    }
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",

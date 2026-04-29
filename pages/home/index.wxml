@@ -5,7 +5,7 @@
         <view class="brand-name">MORI</view>
         <view class="brand-copy">精选生活百货</view>
       </view>
-      <view class="header-action">上海</view>
+      <view class="header-action pressable" bindtap="refreshLocation" hover-class="pressable-hover">{{locationLabel}}</view>
     </view>
 
     <view class="search-bar pressable" bindtap="openSearch" hover-class="pressable-hover">
@@ -15,7 +15,7 @@
 
     <scroll-view class="keyword-strip" scroll-x enable-flex>
       <block wx:for="{{topKeywords}}" wx:key="*this">
-        <view class="keyword-pill">{{item}}</view>
+        <view class="keyword-pill pressable" data-keyword="{{item}}" bindtap="chooseKeyword" hover-class="pressable-hover">{{item}}</view>
       </block>
     </scroll-view>
 
@@ -61,9 +61,9 @@
       <view class="section-head">
         <view>
           <view class="section-title">限时秒杀</view>
-          <view class="section-subtitle">参考淘宝和京东首页的高强度促销区布局</view>
+          <view class="section-subtitle">高频促销位，适合承接首页强转化流量</view>
         </view>
-        <view class="section-link">20:00 场</view>
+        <view class="section-link">20:00 开抢</view>
       </view>
       <scroll-view class="flash-strip" scroll-x enable-flex>
         <block wx:for="{{flashSale}}" wx:key="id">
@@ -88,7 +88,7 @@
       <view class="section-head">
         <view>
           <view class="section-title">频道会场</view>
-          <view class="section-subtitle">用频道宫格做分类承接，避免首页信息过散</view>
+          <view class="section-subtitle">用宫格承接分类入口，减少首页信息拥挤</view>
         </view>
       </view>
       <view class="channel-grid">
@@ -108,7 +108,7 @@
       <view class="section-head">
         <view>
           <view class="section-title">猜你喜欢</view>
-          <view class="section-subtitle">双列商品流是拼多多、淘宝首页最稳定的转化结构</view>
+          <view class="section-subtitle">双列商品流适合稳定承接逛逛型浏览</view>
         </view>
       </view>
       <view class="goods-grid">

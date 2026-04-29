@@ -52,4 +52,46 @@
 .checkout-submit {
   width: 100%;
   margin-top: 16rpx;
+  box-sizing: border-box;
+}
+
+.address-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20rpx;
+}
+
+.compact-btn {
+  width: 180rpx;
+  flex-shrink: 0;
+}
+
+.coupon-select-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20rpx;
+  padding: 22rpx 24rpx;
+  margin-top: 16rpx;
+  border-radius: 24rpx;
+  background: #fff9f4;
+  border: 1px solid rgba(255, 219, 191, 0.92);
+}
+
+.coupon-select-row-active {
+  background: #fff0e2;
+  border-color: rgba(255, 154, 72, 0.92);
+}
+
+.coupon-title {
+  font-size: 28rpx;
+  font-weight: 800;
+  color: #2c221c;
+}
+
+.coupon-desc {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #8d7668;
 }

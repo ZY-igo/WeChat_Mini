@@ -2,7 +2,7 @@
   <view class="section-title">
     <view>
       <view class="title-main">分类选品</view>
-      <view class="title-sub">按生活场景浏览，信息更清晰。</view>
+      <view class="title-sub">按生活场景浏览，信息会更清晰一些。</view>
     </view>
   </view>
 
@@ -28,22 +28,32 @@
       <block wx:if="{{categories.length}}">
         <block wx:for="{{categories[activeIndex].products}}" wx:key="id">
           <view class="surface-card category-product pressable" hover-class="card-press-hover">
-            <image class="category-product-image" mode="aspectFill" src="{{item.image}}" data-id="{{item.id}}" bindtap="openProduct" />
-            <view class="category-product-body" data-id="{{item.id}}" bindtap="openProduct">
-              <view class="pill">{{item.tag}}</view>
-              <view class="category-product-name">{{item.name}}</view>
-              <view class="category-product-subtitle">{{item.subtitle}}</view>
-              <view class="category-metrics">
-                <text>评分 {{item.rating}}</text>
-                <text>库存 {{item.stock}}</text>
-                <text>销量 {{item.sales}}</text>
-              </view>
-              <view class="price-row">
-                <text class="price-now">¥{{item.price}}</text>
-                <text class="price-old">¥{{item.originalPrice}}</text>
+            <view class="category-product-media" data-id="{{item.id}}" bindtap="openProduct">
+              <image class="category-product-image" mode="aspectFill" src="{{item.image}}" />
+              <view class="category-price-block">
+                <view class="price-row">
+                  <text class="price-now">¥{{item.price}}</text>
+                  <text class="price-old">¥{{item.originalPrice}}</text>
+                </view>
               </view>
             </view>
-            <view class="action-btn small-btn pressable" data-id="{{item.id}}" bindtap="addToCart" hover-class="action-btn-hover" hover-stop-propagation>加入</view>
+            <view class="category-product-body">
+              <view class="category-product-top">
+                <view class="pill category-tag">{{item.tag}}</view>
+              </view>
+              <view class="category-product-content" data-id="{{item.id}}" bindtap="openProduct">
+                <view class="category-product-name">{{item.name}}</view>
+                <view class="category-product-subtitle">{{item.subtitle}}</view>
+                <view class="category-metrics">
+                  <text>评分 {{item.rating}}</text>
+                  <text>库存 {{item.stock}}</text>
+                  <text>销量 {{item.sales}}</text>
+                </view>
+              </view>
+              <view class="category-product-footer">
+                <view class="action-btn small-btn pressable" data-id="{{item.id}}" bindtap="addToCart" hover-class="action-btn-hover" hover-stop-propagation>加入</view>
+              </view>
+            </view>
           </view>
         </block>
       </block>

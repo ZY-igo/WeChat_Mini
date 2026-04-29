@@ -4,12 +4,21 @@ const { buildPasswordHash, isPasswordValid, normalizeAccount } = require("../../
 const ACCOUNTS_KEY = "mori_accounts";
 const CURRENT_USER_KEY = "mori_current_user";
 
+function normalizeAvatar(avatar) {
+  const currentAvatar = String(avatar || "").trim();
+  if (!currentAvatar || currentAvatar.includes("images.unsplash.com")) {
+    return profile.avatar;
+  }
+
+  return currentAvatar;
+}
+
 const DEFAULT_ACCOUNTS = [
   {
     username: "mori",
     passwordHash: buildPasswordHash("mori", "123456"),
     nickname: "MORI Member",
-    avatar: profile.avatar,
+    avatar: normalizeAvatar(profile.avatar),
     createdAt: "2026-04-20 10:00",
     passwordUpdatedAt: "2026-04-20 10:00"
   },
@@ -17,7 +26,7 @@ const DEFAULT_ACCOUNTS = [
     username: "demo",
     passwordHash: buildPasswordHash("demo", "demo123"),
     nickname: "Demo User",
-    avatar: profile.avatar,
+    avatar: normalizeAvatar(profile.avatar),
     createdAt: "2026-04-21 09:30",
     passwordUpdatedAt: "2026-04-21 09:30"
   },
@@ -25,7 +34,7 @@ const DEFAULT_ACCOUNTS = [
     username: "guestvip",
     passwordHash: buildPasswordHash("guestvip", "888888"),
     nickname: "Guest VIP",
-    avatar: profile.avatar,
+    avatar: normalizeAvatar(profile.avatar),
     createdAt: "2026-04-22 14:20",
     passwordUpdatedAt: "2026-04-22 14:20"
   }
@@ -52,15 +61,21 @@ function ensureAccounts() {
   const accounts = readStorage(ACCOUNTS_KEY, null);
   if (accounts && Array.isArray(accounts) && accounts.length) {
     const normalizedAccounts = accounts.map(normalizeAccount);
+    const avatarMigratedAccounts = normalizedAccounts.map((item) => ({
+      ...item,
+      avatar: normalizeAvatar(item.avatar)
+    }));
     const needsMigration = normalizedAccounts.some((item, index) => {
-      return item.passwordHash !== accounts[index].passwordHash || item.password !== accounts[index].password;
+      return item.passwordHash !== accounts[index].passwordHash ||
+        item.password !== accounts[index].password ||
+        normalizeAvatar(item.avatar) !== item.avatar;
     });
 
     if (needsMigration) {
-      writeStorage(ACCOUNTS_KEY, normalizedAccounts);
+      writeStorage(ACCOUNTS_KEY, avatarMigratedAccounts);
     }
 
-    return normalizedAccounts;
+    return avatarMigratedAccounts;
   }
 
   writeStorage(ACCOUNTS_KEY, clone(DEFAULT_ACCOUNTS));
@@ -75,7 +90,7 @@ function sanitizeUser(account) {
   return {
     username: account.username,
     nickname: account.nickname,
-    avatar: account.avatar || profile.avatar,
+    avatar: normalizeAvatar(account.avatar),
     createdAt: account.createdAt
   };
 }
@@ -89,7 +104,21 @@ function getAccountList() {
 }
 
 function getCurrentUser() {
-  return readStorage(CURRENT_USER_KEY, null);
+  const currentUser = readStorage(CURRENT_USER_KEY, null);
+  if (!currentUser) {
+    return null;
+  }
+
+  const normalizedUser = {
+    ...currentUser,
+    avatar: normalizeAvatar(currentUser.avatar)
+  };
+
+  if (normalizedUser.avatar !== currentUser.avatar) {
+    writeStorage(CURRENT_USER_KEY, normalizedUser);
+  }
+
+  return normalizedUser;
 }
 
 function isLoggedIn() {

@@ -1,18 +1,20 @@
 .catalog-shell {
   display: flex;
-  gap: 20rpx;
+  gap: 16rpx;
   min-height: 1000rpx;
 }
 
 .catalog-sidebar {
-  width: 200rpx;
+  width: 164rpx;
   display: flex;
   flex-direction: column;
-  gap: 18rpx;
+  gap: 16rpx;
 }
 
 .side-item {
-  padding: 24rpx 18rpx;
+  min-height: 164rpx;
+  padding: 24rpx 16rpx;
+  box-sizing: border-box;
   border-radius: 28rpx;
   background: rgba(255, 247, 240, 0.94);
   color: #9f7b63;
@@ -79,48 +81,96 @@
 
 .category-product {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 20rpx;
-  padding: 18rpx;
+  padding: 20rpx;
   margin-bottom: 20rpx;
 }
 
+.category-product-media {
+  width: 238rpx;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .category-product-image {
-  width: 196rpx;
-  height: 196rpx;
-  border-radius: 24rpx;
+  width: 100%;
+  height: 208rpx;
+  border-radius: 28rpx;
   background: #f5eee8;
+}
+
+.category-price-block {
+  display: flex;
+  align-items: flex-end;
+  min-height: 78rpx;
+  padding: 16rpx 8rpx 0;
+  box-sizing: border-box;
 }
 
 .category-product-body {
   flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category-product-top {
+  display: flex;
+  align-items: center;
+}
+
+.category-product-content {
+  flex: 1;
+}
+
+.category-tag {
+  height: 40rpx;
+  padding: 0 16rpx;
+  font-size: 20rpx;
 }
 
 .category-product-name {
-  margin-top: 12rpx;
-  font-size: 30rpx;
+  margin-top: 14rpx;
+  font-size: 34rpx;
   font-weight: 800;
+  line-height: 1.35;
   color: #2c221c;
 }
 
 .category-product-subtitle {
-  margin: 10rpx 0 14rpx;
+  margin: 12rpx 0 16rpx;
   font-size: 22rpx;
-  line-height: 1.6;
+  line-height: 1.55;
   color: #8c7668;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .category-metrics {
   display: flex;
   flex-wrap: wrap;
   gap: 14rpx;
-  margin-bottom: 16rpx;
   font-size: 20rpx;
   color: #bc7a40;
 }
 
+.category-product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 18rpx;
+}
+
 .small-btn {
   height: 64rpx;
-  padding: 0 24rpx;
+  min-width: 132rpx;
+  padding: 0 28rpx;
   font-size: 22rpx;
+  flex-shrink: 0;
 }

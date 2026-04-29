@@ -1,13 +1,19 @@
 <view class="shell checkout-page">
   <view class="surface-card checkout-card">
     <view class="title-main">确认订单</view>
-    <view class="title-sub">结算页已接入独立预览接口，后续可直接替换真实订单服务。</view>
+    <view class="title-sub">结算页已接入本地地址和优惠券逻辑，后续可直接替换真实订单服务。</view>
   </view>
 
-  <view class="surface-card checkout-card" wx:if="{{address}}">
-    <view class="checkout-title">收货信息</view>
-    <view class="checkout-text">{{address.name}} {{address.phone}}</view>
-    <view class="checkout-text">{{address.detail}}</view>
+  <view class="surface-card checkout-card">
+    <view class="address-row">
+      <view>
+        <view class="checkout-title">收货信息</view>
+        <view wx:if="{{address}}" class="checkout-text">{{address.name}} {{address.phone}}</view>
+        <view wx:if="{{address}}" class="checkout-text">{{address.detail}}</view>
+        <view wx:else class="checkout-text">还没有收货地址，请先新增。</view>
+      </view>
+      <view class="ghost-btn compact-btn pressable" bindtap="manageAddress" hover-class="ghost-btn-hover">{{address ? '管理地址' : '添加地址'}}</view>
+    </view>
   </view>
 
   <view class="surface-card checkout-card">
@@ -21,17 +27,37 @@
   </view>
 
   <view class="surface-card checkout-card">
+    <view class="checkout-title">可用优惠券</view>
+    <block wx:if="{{couponList.length}}">
+      <block wx:for="{{couponList}}" wx:key="id">
+        <view class="coupon-select-row {{selectedCouponId === item.id ? 'coupon-select-row-active' : ''}}" data-id="{{item.id}}" data-discount="{{item.discount}}" bindtap="toggleCoupon">
+          <view>
+            <view class="coupon-title">{{item.title}}</view>
+            <view class="coupon-desc">满 {{item.minSpend}} 可用，减 {{item.discount}}，有效期至 {{item.expiry}}</view>
+          </view>
+          <view class="pill">{{selectedCouponId === item.id ? '已选择' : '可使用'}}</view>
+        </view>
+      </block>
+    </block>
+    <view wx:else class="checkout-text">当前没有满足门槛的可用优惠券。</view>
+  </view>
+
+  <view class="surface-card checkout-card">
     <view class="checkout-line">
       <text>商品总数</text>
       <text>{{totalCount}} 件</text>
     </view>
     <view class="checkout-line">
-      <text>优惠减免</text>
+      <text>商品优惠</text>
       <text>-¥{{savedAmount}}</text>
+    </view>
+    <view class="checkout-line">
+      <text>优惠券抵扣</text>
+      <text>-¥{{discountAmount}}</text>
     </view>
     <view class="checkout-line total-line">
       <text>实付金额</text>
-      <text>¥{{totalAmount}}</text>
+      <text>¥{{payableAmount}}</text>
     </view>
     <view class="action-btn checkout-submit pressable" bindtap="submitOrder" hover-class="action-btn-hover">提交订单</view>
   </view>

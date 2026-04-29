@@ -21,8 +21,8 @@ function getHomePage() {
   return mockRequest({
     url: "/api/home",
     mockData: {
-      topKeywords: ["防晒外套", "早餐托盘", "精华油", "次日达蔬果"],
-      notice: "新人首单立减 20 元，每晚 20:00 开抢限时补贴",
+      topKeywords: ["风衣", "早餐托盘", "精华油", "次日达"],
+      notice: "新人首单立减 20 元，每晚 20:00 可以领取限时优惠券。",
       heroBanners: [
         {
           id: 1,
@@ -35,7 +35,7 @@ function getHomePage() {
           id: 2,
           title: "居家焕新",
           caption: "香氛、餐厨、软装好物一站配齐",
-          badge: "满199减30",
+          badge: "满 99 减 10",
           image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"
         },
         {
@@ -50,7 +50,7 @@ function getHomePage() {
         { id: "coupon", title: "领券中心", subtitle: "最高减 80", value: "coupon", icon: "券" },
         { id: "new", title: "新品首发", subtitle: "本周上新", value: "new", icon: "新" },
         { id: "address", title: "收货地址", subtitle: "统一管理", value: "address", icon: "址" },
-        { id: "support", title: "客服帮助", subtitle: "7x24 在线", value: "support", icon: "服" },
+        { id: "support", title: "客服帮助", subtitle: "7x24 在线", value: "support", icon: "助" },
         { id: "flash", title: "限时秒杀", subtitle: "今晚 20 点", value: "coupon", icon: "秒" },
         { id: "member", title: "会员专区", subtitle: "专属折扣", value: "member", icon: "会" },
         { id: "delivery", title: "次日达", subtitle: "鲜食专场", value: "address", icon: "达" },
@@ -59,14 +59,14 @@ function getHomePage() {
       promoCards: [
         {
           id: "subsidy",
-          title: "百亿补贴风格专区",
-          desc: "高频单品直降，做首页强促销承接",
+          title: "补贴专区",
+          desc: "高频单品直降，适合首页承接促销流量。",
           accent: "补贴价"
         },
         {
           id: "member",
           title: "黑卡会员日",
-          desc: "免邮券、专属价、新品优先购",
+          desc: "免邮券、专属价、新品优先购。",
           accent: "会员价"
         }
       ],
@@ -138,7 +138,7 @@ function getHomePage() {
         }),
         normalizeProduct(products[2], {
           name: "陶土香薰蜡烛",
-          subtitle: "卧室书桌都适合的氛围单品",
+          subtitle: "卧室和书桌都适合的氛围单品",
           tag: "氛围感"
         }),
         normalizeProduct(products[3], {
